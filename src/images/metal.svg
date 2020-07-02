@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>metal</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2-copy-4" transform="translate(-1510.000000, -34.000000)" fill="#575756">
+            <g id="Group" transform="translate(1499.000000, 23.000000)">
+                <g id="metal">
+                    <path d="M38,9 L58.5060967,17.4939033 L67,38 L58.5060967,58.5060967 L38,67 L17.4939033,58.5060967 L9,38 L17.4939033,17.4939033 L38,9 Z M38,11.164 L19.024,19.024 L11.164,38 L19.024,56.975 L38,64.835 L56.975,56.975 L64.835,37.999 L56.975,19.024 L38,11.164 Z" id="Polygon" fill-rule="nonzero" transform="translate(38.000000, 38.000000) rotate(112.500000) translate(-38.000000, -38.000000) "></path>
+                    <text id="金" font-family="STSongti-SC-Black, Songti SC" font-size="30" font-weight="700" letter-spacing="1.875">
+                        <tspan x="23" y="48">金</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

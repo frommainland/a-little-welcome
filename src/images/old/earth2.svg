@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="384px" height="385px" viewBox="0 0 384 385" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>earth2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="earth2">
+            <rect id="Rectangle" fill="#000000" transform="translate(192.000000, 193.000000) rotate(90.000000) translate(-192.000000, -193.000000) " x="0" y="1" width="384" height="384"></rect>
+            <path d="M384,315 L384,350 L0,350 L0,315 L384,315 Z M384,245 L384,280 L0,280 L0,245 L384,245 Z M384,175 L384,210 L0,210 L0,175 L384,175 Z M384,105 L384,140 L0,140 L0,105 L384,105 Z M384,35 L384,70 L0,70 L0,35 L384,35 Z" id="Combined-Shape" fill="#12AB47" transform="translate(192.000000, 192.500000) rotate(90.000000) translate(-192.000000, -192.500000) "></path>
+        </g>
+    </g>
+</svg>
