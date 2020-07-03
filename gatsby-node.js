@@ -5,17 +5,19 @@
  */
 
 // You can delete this file if you're not using it
-// exports.onCreateWebpackConfig = ({ actions, stage }) => {
+// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
 //     if (stage === "build-html") {
 //         actions.setWebpackConfig({
 //             module: {
 //                 rules: [
 //                     {
+//                         test: /react-p5/,
+//                         test: /framer-motion/,
 //                         test: /mapbox-gl/,
-//                         use: ['null-loader']
+//                         use: loaders.null(),
 //                     },
 //                 ],
-//             }
+//             },
 //         })
 //     }
-// };
+// }

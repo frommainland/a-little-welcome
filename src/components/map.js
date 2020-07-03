@@ -7,6 +7,10 @@ mapboxgl.accessToken = "pk.eyJ1IjoiZnJvbW1haW5sYW5kIiwiYSI6ImNqM3RsNTJvOTAwZmIzM
 
 
 export default function Worldmap() {
+    // Requiring function causes error during builds
+    // as the code tries to reference window
+
+
     const mapContainerRef = useRef(null);
 
     // initialize map when component mounts
@@ -31,9 +35,11 @@ export default function Worldmap() {
             className="map-container"
             ref={mapContainerRef}
             style={{
-                height: "100vh",
-                width: '100vw',
-                position: 'fixed'
+                position: 'absolute',
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0
             }}
         />
     )
