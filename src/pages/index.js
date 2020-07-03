@@ -10,6 +10,7 @@ import Timer from '../components/timer'
 import style from '../components/index.module.css'
 
 
+
 const IndexPage = () => (
   <Layout>
     <div className={style.wrap}>

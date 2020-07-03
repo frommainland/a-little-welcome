@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../components/clock.module.css'
 import { motion } from "framer-motion"
-import { func } from 'prop-types';
 
 
 
