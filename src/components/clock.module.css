@@ -3,13 +3,21 @@
     src: url('../font/futur.ttf') format("truetype")
 }
 .wrap {
-    display: inline-block;
     text-align: center;
     color: #F5F3F0;
     font-weight: 900;
     position: relative;
     left: 50px;
 }
+
+.wrapMini {
+    display: inline-block;
+    text-align: center;
+    color: #F5F3F0;
+    font-weight: 900;
+    position: relative;
+}
+
 .dial {
     width: 300px;
     height: 300px;
@@ -19,29 +27,68 @@
     margin-bottom: 32px;
 }
 
+.dialMini {
+    width: 180px;
+    height: 180px;
+    border: #F5F3F0 solid 1px;
+    border-radius: 50%;
+    position: relative;
+    margin-bottom: 20px;
+}
+
 .hourHand {
     width: 92px;
-    height: 4px;
-    background: black;
+    height: 6px;
+    background: #2F305F;
     position: absolute;
     top: 50%;
+    border-radius: 100px;
     left: calc(50% + 46px);
     margin: -2px 0 0 -46px;
     transform-origin: center left;
     transform: rotate(-90deg);
 }
 
+.hourHandMini {
+    width: 56px;
+    height: 4px;
+    background: #E9E0D8;
+    position: absolute;
+    top: 50%;
+    border-radius: 100px;
+    left: calc(50% + 28px);
+    margin: -2px 0 0 -28px;
+    transform-origin: center left;
+    transform: rotate(-90deg);
+}
+
+
 .minHand {
     width: 118px;
-    height: 4px;
-    background: black;
+    height: 6px;
+    background: #2F305F;
     position: absolute;
+    border-radius: 100px;
     top: 50%;
     left: calc(50% + 59px);
     margin: -2px 0 0 -59px;
     transform-origin: center left;
     transform: rotate(-90deg);
 }
+.minHandMini {
+    width: 70px;
+    height: 4px;
+    background: #E9E0D8;
+    position: absolute;
+    border-radius: 100px;
+    top: 50%;
+    left: calc(50% + 35px);
+    margin: -2px 0 0 -35px;
+    transform-origin: center left;
+    transform: rotate(-90deg);
+}
+
+
 
 .secHand {
     width: 2px;
@@ -49,6 +96,16 @@
     background: var(--yellow);
     position: absolute;
     transform-origin: 50% 87%;
+    top: 20px;
+    left: 50%;
+    
+}
+.secHandMini {
+    width: 1px;
+    height: 88px;
+    background: var(--yellow);
+    position: absolute;
+    transform-origin: 50% 79%;
     top: 20px;
     left: 50%;
     
@@ -63,4 +120,14 @@
     top: 50%;
     left: 50%;
     margin: -15px 0 0 -15px;
+}
+.centerDotMini {
+    width: 18px;
+    height: 18px;
+    background: var(--yellow);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -9px 0 0 -9px;
 }

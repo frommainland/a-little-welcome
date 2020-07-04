@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import mapboxgl from 'mapbox-gl';
+import mapboxgl, { maxParallelImageRequests } from 'mapbox-gl';
 
 import '../styles/mapbox.css'
 
@@ -20,12 +20,11 @@ export default function Worldmap() {
             // See style options here: https://docs.mapbox.com/api/maps/#styles
             style: 'mapbox://styles/frommainland/ckc23phx66leq1io95xnt9klq',
             center: [27.693, 15.946],
-            zoom: 2.0,
+            zoom: 1.0,
         });
 
         // add navigation control (the +/- zoom buttons)
         // map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
-
         // clean up on unmount
         return () => map.remove();
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -35,6 +34,7 @@ export default function Worldmap() {
             className="map-container"
             ref={mapContainerRef}
             style={{
+                zIndex: -1,
                 position: 'absolute',
                 top: 0,
                 bottom: 0,
