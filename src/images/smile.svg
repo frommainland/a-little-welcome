@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>smile</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-630.000000, -293.000000)">
+            <g id="smile" transform="translate(596.000000, 259.000000)">
+                <circle id="Oval" stroke="#000000" stroke-width="10" fill="#FFFFFF" transform="translate(124.000000, 124.000000) rotate(121.000000) translate(-124.000000, -124.000000) " cx="124" cy="124" r="85"></circle>
+                <g id="Group" transform="translate(122.712405, 126.142918) rotate(31.000000) translate(-122.712405, -126.142918) translate(64.712405, 70.642918)" fill="#000000">
+                    <path d="M58,111 C90.0325155,111 116,85.0325155 116,53 C116,20.9674845 0,20.9674845 0,53 C0,85.0325155 25.9674845,111 58,111 Z" id="Oval"></path>
+                    <circle id="Oval" cx="31" cy="6" r="6"></circle>
+                    <circle id="Oval-Copy" cx="87" cy="6" r="6"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
