@@ -1,0 +1,12 @@
+{
+  "emmet.excludeLanguages": ["markdown"],
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "vue-html": "html",
+    "razor": "html",
+    "plaintext": "pug"
+  },
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  }
+}
