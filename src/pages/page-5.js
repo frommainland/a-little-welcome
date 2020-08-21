@@ -29,6 +29,9 @@ function Card(props) {
       x: [0, 0, -100],
       y: [100, 0, 0],
     },
+    haha: {
+      background: '"#FFA61F"',
+    },
   }
   return (
     <div
@@ -43,37 +46,32 @@ function Card(props) {
         style={{
           width: 100,
           height: 100,
-          background: "black",
+          background: props.div1Color,
           position: "absolute",
-        }}
-        initial={{
-          y: 100,
         }}
         variants={variants}
         animate={props.direction}
         transition={{
-          duration: 3,
+          duration: 1.5,
           loop: Infinity,
-          repeatDelay: 3,
+          repeatDelay: 1.5,
+          delay: props.delay / 2,
         }}
       ></motion.div>
       <motion.div
         style={{
           width: 100,
           height: 100,
-          background: "yellow",
+          background: props.div2Color,
           position: "absolute",
-        }}
-        initial={{
-          y: 100,
         }}
         variants={variants}
         animate={props.direction}
         transition={{
-          duration: 3,
+          duration: 1.5,
           loop: Infinity,
-          delay: 3,
-          repeatDelay: 3,
+          repeatDelay: 1.5,
+          delay: props.delay / 2 + 1.5,
         }}
       ></motion.div>
     </div>
@@ -81,6 +79,11 @@ function Card(props) {
 }
 
 export default function page5() {
+  let yellow = "#FFA61F"
+  let black = "#000000"
+  let red = "#EB1B0F"
+  let blue = "#0053D0"
+
   return (
     <Layout>
       <div
@@ -91,10 +94,10 @@ export default function page5() {
           flexWrap: "wrap",
         }}
       >
-        <Card direction="a" />
-        <Card direction="d" />
-        <Card direction="b" />
-        <Card direction="c" />
+        <Card direction="a" div1Color={red} div2Color={blue} delay={1.5} />
+        <Card direction="d" div1Color={black} div2Color={yellow} delay={0} />
+        <Card direction="b" div1Color={yellow} div2Color={black} delay={0} />
+        <Card direction="c" div1Color={blue} div2Color={red} delay={1.5} />
       </div>
     </Layout>
   )
