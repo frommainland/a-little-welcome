@@ -5,6 +5,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { motion, useAnimation } from "framer-motion"
 
+let yellow = "#FFA61F"
+let black = "#000000"
+let red = "#EB1B0F"
+let blue = "#0053D0"
+
 function Card(props) {
   const variants = {
     //      A D
@@ -56,6 +61,7 @@ function Card(props) {
           loop: Infinity,
           repeatDelay: 1.5,
           delay: props.delay / 2,
+          ease: "anticipate",
         }}
       ></motion.div>
       <motion.div
@@ -72,25 +78,128 @@ function Card(props) {
           loop: Infinity,
           repeatDelay: 1.5,
           delay: props.delay / 2 + 1.5,
+          ease: "anticipate",
         }}
       ></motion.div>
     </div>
   )
 }
 
-export default function page5() {
-  let yellow = "#FFA61F"
-  let black = "#000000"
-  let red = "#EB1B0F"
-  let blue = "#0053D0"
+function HalfCircle() {
+  return (
+    <motion.div
+      style={{
+        height: 100,
+        width: 200,
+        background: yellow,
+        borderTopLeftRadius: 200,
+        borderTopRightRadius: 200,
+        display: "inline-block",
+        originY: 1,
+      }}
+      animate={{
+        rotate: [0, 90, 180, 270, 360],
+      }}
+      transition={{
+        duration: 3,
+        ease: "anticipate",
+        loop: Infinity,
+      }}
+    ></motion.div>
+  )
+}
 
+function ScaleRight2Left() {
+  return (
+    <div
+      style={{
+        width: 100,
+        height: 100,
+        overflow: "hidden",
+      }}
+    >
+      <motion.div
+        style={{
+          width: 100,
+          height: 100,
+          background: black,
+        }}
+        // initial={{
+        //   scale: 0,
+        //   originY: 0,
+        //   originX: 1,
+        // }}
+        animate={{
+          scale: [0, 1, 0],
+          originX: [1, 1, 0],
+          originY: [0, 0, 1],
+        }}
+        transition={{
+          duration: 3,
+          ease: [
+            [0.5, 0, 0.75, 0],
+            [0.25, 1, 0.5, 1],
+          ],
+          loop: Infinity,
+        }}
+      ></motion.div>
+    </div>
+  )
+}
+
+function TwoCircle() {
+  return (
+    <div
+      style={{
+        position: "relative",
+      }}
+    >
+      <motion.div
+        style={{
+          width: 200,
+          height: 200,
+          background: red,
+          borderRadius: 100,
+          position: "absolute",
+        }}
+        animate={{
+          x: [0, 200],
+        }}
+        transition={{
+          duration: 2,
+          yoyo: Infinity,
+          zIndex: [-1, 1],
+        }}
+      ></motion.div>
+      <motion.div
+        style={{
+          width: 200,
+          height: 200,
+          background: blue,
+          borderRadius: 100,
+          position: "absolute",
+        }}
+        animate={{
+          x: [0, 200],
+        }}
+        transition={{
+          delay: 2,
+          duration: 2,
+          yoyo: Infinity,
+          zIndex: [1, -1],
+        }}
+      ></motion.div>
+    </div>
+  )
+}
+export default function page5() {
   return (
     <Layout>
       <div
         style={{
           width: 200,
           height: 200,
-          display: "flex",
+          display: "inline-flex",
           flexWrap: "wrap",
         }}
       >
@@ -99,6 +208,9 @@ export default function page5() {
         <Card direction="b" div1Color={yellow} div2Color={black} delay={0} />
         <Card direction="c" div1Color={blue} div2Color={red} delay={1.5} />
       </div>
+      <HalfCircle />
+      <ScaleRight2Left />
+      <TwoCircle />
     </Layout>
   )
 }
