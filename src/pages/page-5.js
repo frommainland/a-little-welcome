@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { motion, useAnimation } from "framer-motion"
+import styled, { keyframes } from "styled-components"
 
 let yellow = "#FFA61F"
 let black = "#000000"
@@ -148,47 +149,25 @@ function ScaleRight2Left() {
 }
 
 function TwoCircle() {
+  const rotate = keyframes`
+  from {left: 0}
+  to {left: 200px}
+`
+
+  const Circle = styled.div`
+    background-color: rebeccapurple;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    animation: ${rotate} 2s linear infinite;
+  `
   return (
     <div
       style={{
         position: "relative",
       }}
     >
-      <motion.div
-        style={{
-          width: 200,
-          height: 200,
-          background: red,
-          borderRadius: 100,
-          position: "absolute",
-        }}
-        animate={{
-          x: [0, 200],
-        }}
-        transition={{
-          duration: 2,
-          yoyo: Infinity,
-          zIndex: [-1, 1],
-        }}
-      ></motion.div>
-      <motion.div
-        style={{
-          width: 200,
-          height: 200,
-          background: blue,
-          borderRadius: 100,
-          position: "absolute",
-        }}
-        animate={{
-          x: [0, 200],
-        }}
-        transition={{
-          delay: 2,
-          duration: 2,
-          yoyo: Infinity,
-          zIndex: [1, -1],
-        }}
-      ></motion.div>
+      <Circle />
     </div>
   )
 }
