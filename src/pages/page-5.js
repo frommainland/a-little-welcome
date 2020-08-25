@@ -6,6 +6,9 @@ import SEO from "../components/seo"
 import { motion, useAnimation } from "framer-motion"
 import styled, { keyframes } from "styled-components"
 
+import ReactAnime from "react-animejs"
+const { Anime, stagger } = ReactAnime
+
 let yellow = "#FFA61F"
 let black = "#000000"
 let red = "#EB1B0F"
@@ -403,6 +406,41 @@ function Filterball() {
     />
   )
 }
+
+function T() {
+  return (
+    <Anime
+      initial={[
+        {
+          targets: "#Box",
+          points: [
+            {
+              value: "0 0 200 200 0 200",
+            },
+            {
+              value: "200 0 200 200 0 200",
+            },
+            {
+              value: "200 0 200 200 0 0",
+            },
+            {
+              value: "200 0 0 200 0 0",
+            },
+          ],
+          easing: "easeOutQuad",
+          duration: 2000,
+          loop: true,
+          direction: "alternate",
+        },
+      ]}
+    >
+      <svg width="200px" height="200px">
+        <polygon id="Box" points="0 0 200 200 0 200"></polygon>
+      </svg>
+    </Anime>
+  )
+}
+
 export default function page5() {
   return (
     <Layout>
@@ -436,6 +474,7 @@ export default function page5() {
         <Spring />
         <Spring2 />
         <Filterball />
+        <T />
       </div>
     </Layout>
   )
