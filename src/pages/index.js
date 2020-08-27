@@ -40,9 +40,11 @@ const IndexPage = () => (
             <sup>伍</sup>元素
           </li>
         </Link>
-        <li>
-          <sup>陆</sup>选个标题
-        </li>
+        <Link to="/page-6">
+          <li>
+            <sup>陆</sup>数字支付一
+          </li>
+        </Link>
       </ul>
     </div>
     <P5 />
