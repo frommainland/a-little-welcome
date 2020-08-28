@@ -3,8 +3,7 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { motion, useAnimation } from "framer-motion"
-import styled, { keyframes } from "styled-components"
+import { motion, AnimatePresence } from "framer-motion"
 import useWindowSize from "../components/useWindowResize"
 
 let yellow = "#FFA61F"
@@ -14,6 +13,45 @@ let blue = "#0053D0"
 
 export default function Page6() {
   const size = useWindowSize()
+
+  const trianges = []
+  trianges.push(
+    <div
+      style={{
+        width: 0,
+        height: 0,
+        borderStyle: "solid",
+        borderWidth: "0 0 calc(100vw/12*2) calc(100vw/12*2)",
+        borderColor: "transparent transparent black transparent",
+      }}
+    />
+  )
+
+  trianges.push(
+    <div
+      style={{
+        width: 0,
+        height: 0,
+        borderStyle: "solid",
+        borderWidth: "calc(100vw/12*2) calc(100vw/12*2) 0 0",
+        borderColor: "black transparent transparent transparent",
+      }}
+    />
+  )
+  const [current, setcurrent] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (current === 0) {
+        setcurrent(current + 1)
+      } else {
+        setcurrent(0)
+      }
+    }, 3000)
+    return () => clearInterval(interval)
+  })
+
+  console.log(current)
   return (
     <Layout>
       <div
@@ -43,26 +81,35 @@ export default function Page6() {
               gridColumn: "1 / 2",
               height: "calc(100vw / 12 *2 )",
               background: yellow,
-              display: "flex",
-              flexDirection: "row",
+              position: "relative",
               overflow: "hidden",
             }}
           >
-            <motion.img
-              style={{
-                width: "inherit",
-                height: "inherit",
-              }}
-              src={require("../images/page6-triangle.svg")}
-              animate={{
-                x: ["0%", "-50%", "-100%"],
-              }}
-              transition={{
-                duration: 3,
-                ease: "easeInOut",
-                loop: Infinity,
-              }}
-            />
+            <AnimatePresence>
+              <motion.div
+                style={{
+                  width: "inherit",
+                  height: "inherit",
+                  position: "absolute",
+                }}
+                initial={{
+                  x: (size.width / 12) * 2,
+                }}
+                animate={{
+                  x: 0,
+                }}
+                exit={{
+                  x: -(size.width / 12) * 2,
+                }}
+                transition={{
+                  ease: [0.86, 0, 0.07, 1],
+                  duration: 3,
+                }}
+                key={current}
+              >
+                {trianges[current]}
+              </motion.div>
+            </AnimatePresence>
           </div>
           <div
             style={{
@@ -89,16 +136,17 @@ export default function Page6() {
                 background: black,
               }}
               initial={{
-                y: -size.height,
+                y: "-100%",
               }}
               animate={{
-                y: [-size.height, 0, 0, size.height],
+                y: ["0%", "100%"],
               }}
               transition={{
-                duration: 3,
-                ease: "easeInOut",
+                duration: 6,
+                ease: [0.86, 0, 0.07, 1],
                 loop: Infinity,
               }}
+            />
             />
           </div>
         </div>
