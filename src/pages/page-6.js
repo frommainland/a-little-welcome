@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { motion, AnimatePresence } from "framer-motion"
 import useWindowSize from "../components/useWindowResize"
+import ScriptText from "../components/page6/text"
 
 export default function Page6() {
   let yellow = "#FFA61F"
@@ -208,6 +209,7 @@ export default function Page6() {
             gridColumn: "6 / 13",
           }}
         >
+          <ScriptText />
           {size.width}
         </div>
       </div>
