@@ -5,7 +5,9 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { motion, AnimatePresence } from "framer-motion"
 import useWindowSize from "../components/useWindowResize"
-import ScriptText from "../components/page6/text"
+import ScriptText2 from "../components/page6/text2"
+import ScriptText3 from "../components/page6/text3"
+import "../components/myfont.css"
 
 export default function Page6() {
   let yellow = "#FFA61F"
@@ -34,11 +36,9 @@ export default function Page6() {
       } else {
         setcurrent(0)
       }
-    }, 1600)
+    }, 1700)
     return () => clearTimeout(time)
   })
-
-  console.log(current)
 
   // 三角形
   const trianges = []
@@ -207,10 +207,65 @@ export default function Page6() {
         <div
           style={{
             gridColumn: "6 / 13",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <ScriptText />
-          {size.width}
+          <div
+            style={{
+              width: "auto",
+              height: "auto",
+              position: "fixed",
+              transform: "rotate(-90deg)",
+              marginLeft: -50,
+            }}
+          >
+            <ScriptText2 width={size.height * 0.75} />
+            <ScriptText3 width={size.height * 0.7} />
+          </div>
+          <div
+            style={{
+              width: "60%",
+              height: "auto",
+              display: "flex",
+              justifyContent: "space-between",
+              zIndex: 2,
+            }}
+          >
+            <div
+              style={{
+                fontFamily: "gt-washeim",
+                fontSize: "3vw",
+                color: "#9D9D9D",
+                textAlign: "center",
+                textTransform: "uppercase",
+                letterSpacing: 16,
+                lineHeight: 1.4,
+              }}
+            >
+              <h1>mobile</h1>
+              <h1>point</h1>
+              <h1>of</h1>
+              <h1>sale</h1>
+            </div>
+            <p
+              style={{
+                fontFamily: "gt-washeim-light",
+                fontSize: "1vw",
+                color: "#9D9D9D",
+                writingMode: "vertical-rl",
+                lineHeight: 1.4,
+                paddingTop: "2vw",
+              }}
+            >
+              Opportunities for merchants
+              <br />
+              Benefits to technology partners
+              <br />
+              Growth for acquirers
+            </p>
+          </div>
         </div>
       </div>
     </Layout>

@@ -1,4 +1,13 @@
 @font-face {
-    font-family: 'knockout';
-    src: url('../font/Knockout-HTF67-FullBantamwt.otf') format("opentype")
+  font-family: "knockout";
+  src: url("../font/Knockout-HTF67-FullBantamwt.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "gt-washeim";
+  src: url("../font/gt-walsheim-bold-web.ttf") format("truetype");
+}
+@font-face {
+  font-family: "gt-washeim-light";
+  src: url("../font/gt-walsheim-light-web.ttf") format("truetype");
 }
