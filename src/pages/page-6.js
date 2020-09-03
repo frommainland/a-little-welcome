@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import useWindowSize from "../components/useWindowResize"
 import ScriptText2 from "../components/page6/text2"
 import ScriptText3 from "../components/page6/text3"
+import LeftNav from "../components/leftNav"
 import "../components/myfont.css"
 
 export default function Page6() {
@@ -36,7 +37,7 @@ export default function Page6() {
       } else {
         setcurrent(0)
       }
-    }, 1700)
+    }, 2000)
     return () => clearTimeout(time)
   })
 
@@ -150,7 +151,7 @@ export default function Page6() {
           gridTemplateColumns: "repeat(12, 1fr)",
         }}
       >
-        <div>menu</div>
+        <LeftNav />
 
         {/* animate number wrap*/}
         <div
