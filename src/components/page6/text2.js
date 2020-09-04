@@ -17,7 +17,7 @@ function ScriptText2(props) {
     start: {
       pathLength: 1,
       transition: {
-        duration: 10,
+        duration: 6,
         ease: [0.37, 0, 0.63, 1],
         flip: Infinity,
         repeatDelay: 2,

@@ -17,8 +17,8 @@ function ScriptText3(props) {
     start: {
       pathLength: 1,
       transition: {
-        delay: 10,
-        duration: 10,
+        delay: 6,
+        duration: 6,
         ease: [0.37, 0, 0.63, 1],
         flip: Infinity,
         repeatDelay: 2,

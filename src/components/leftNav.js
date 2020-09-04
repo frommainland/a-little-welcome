@@ -1,5 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
+import LeftNavButton from "./leftNavButton"
 
 export default function LeftNav() {
   return (
@@ -68,15 +69,8 @@ export default function LeftNav() {
             Discover how you can take your digital payment solution to market.
           </p>
         </div>
+        <LeftNavButton />
         {/* back button */}
-        <div
-          style={{
-            width: 50,
-            height: 50,
-            borderRadius: 50,
-            border: "1px solid #979797",
-          }}
-        ></div>
       </div>
     </div>
   )

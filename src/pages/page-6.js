@@ -258,6 +258,7 @@ export default function Page6() {
                 writingMode: "vertical-rl",
                 lineHeight: 1.4,
                 paddingTop: "2vw",
+                letterSpacing: 1.31,
               }}
             >
               Opportunities for merchants
