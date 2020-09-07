@@ -42,7 +42,12 @@ const IndexPage = () => (
         </Link>
         <Link to="/page-6">
           <li>
-            <sup>陆</sup>数字支付一
+            <sup>陆</sup>移动销售终端
+          </li>
+        </Link>
+        <Link to="/page-7">
+          <li>
+            <sup>柒</sup>生物识别
           </li>
         </Link>
       </ul>
