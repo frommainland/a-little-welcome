@@ -6,7 +6,8 @@ import SEO from "../components/seo"
 import { motion, AnimatePresence } from "framer-motion"
 import LeftNav from "../components/leftNav"
 import "../components/myfont.css"
-import Number2 from "../components/page7/number2"
+import Number2Top from "../components/page7/number2top"
+import Number2Mid from "../components/page7/number2mid"
 
 export default function Page6() {
   let yellow = "#FFA61F"
@@ -32,9 +33,22 @@ export default function Page6() {
           style={{
             gridColumn: "2 / 6",
             height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <Number2 />
+          <div
+            style={{
+              width: "27vw",
+              height: "44vw",
+              border: "1px solid #0053D0",
+              position: "relative",
+            }}
+          >
+            <Number2Top />
+            <Number2Mid />
+          </div>
         </div>
 
         {/* 右侧文字区 */}
