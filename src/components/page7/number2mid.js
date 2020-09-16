@@ -29,8 +29,8 @@ export default function Number2Mid() {
     <motion.div
       style={{
         width: "17vw",
-        height: "45%",
-        background: "red",
+        height: "100%",
+        background: "#0053D0",
         position: "absolute",
         skewX: -46,
       }}
@@ -59,8 +59,8 @@ export default function Number2Mid() {
     <motion.div
       style={{
         width: "17vw",
-        height: "45%",
-        background: "blue",
+        height: "100%",
+        background: "black",
         position: "absolute",
         skewX: -46,
       }}
@@ -90,8 +90,8 @@ export default function Number2Mid() {
     <motion.div
       style={{
         width: "17vw",
-        height: "45%",
-        background: "red",
+        height: "100%",
+        background: "#0053D0",
         position: "absolute",
         skewX: -46,
       }}
@@ -121,8 +121,8 @@ export default function Number2Mid() {
     <motion.div
       style={{
         width: "17vw",
-        height: "45%",
-        background: "blue",
+        height: "100%",
+        background: "black",
         position: "absolute",
         skewX: -46,
       }}
@@ -133,7 +133,7 @@ export default function Number2Mid() {
         x: ["235%", "135%", "35%", "-65%", "-165%"],
       }}
       transition={{
-        delay: c === 0 ? 6 : 0,
+        delay: d === 0 ? 6 : 0,
         duration: 8,
       }}
       key={d}
@@ -151,15 +151,15 @@ export default function Number2Mid() {
     <div
       style={{
         width: "100%",
-        height: "100%",
+        height: "20vw",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {slash}
-      {slash2}
-      {slash3}
-      {slash4}
+      <AnimatePresence>{slash}</AnimatePresence>
+      <AnimatePresence>{slash2}</AnimatePresence>
+      <AnimatePresence>{slash3}</AnimatePresence>
+      <AnimatePresence>{slash4}</AnimatePresence>
     </div>
   )
 }

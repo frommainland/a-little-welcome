@@ -8,6 +8,8 @@ import LeftNav from "../components/leftNav"
 import "../components/myfont.css"
 import Number2Top from "../components/page7/number2top"
 import Number2Mid from "../components/page7/number2mid"
+import Number2Bot from "../components/page7/number2bot"
+import Balls from "../components/page7/ball"
 
 export default function Page6() {
   let yellow = "#FFA61F"
@@ -44,10 +46,12 @@ export default function Page6() {
               height: "44vw",
               border: "1px solid #0053D0",
               position: "relative",
+              overflow: "hidden",
             }}
           >
             <Number2Top />
             <Number2Mid />
+            <Number2Bot />
           </div>
         </div>
 
@@ -59,7 +63,22 @@ export default function Page6() {
             justifyContent: "center",
             alignItems: "center",
           }}
-        ></div>
+        >
+          <div
+            style={{
+              width: "37.5vw",
+              height: "44vw",
+              background: "red",
+              display: "grid",
+              gridTemplateColumns: "repeat(6, 1fr)",
+              gridTemplateRows: "repeat(6, 1fr)",
+            }}
+          >
+            {for (let index = 0; index < 42; index++) {
+                <h1>index</h1>
+            }}
+          </div>
+        </div>
       </div>
     </Layout>
   )
