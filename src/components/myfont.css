@@ -11,3 +11,7 @@
   font-family: "gt-washeim-light";
   src: url("../font/gt-walsheim-light-web.ttf") format("truetype");
 }
+@font-face {
+  font-family: "harbour-bold";
+  src: url("../font/Harbour-Bold.otf") format("opentype");
+}

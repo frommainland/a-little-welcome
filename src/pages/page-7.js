@@ -9,7 +9,7 @@ import "../components/myfont.css"
 import Number2Top from "../components/page7/number2top"
 import Number2Mid from "../components/page7/number2mid"
 import Number2Bot from "../components/page7/number2bot"
-import Balls from "../components/page7/ball"
+import BallGrid from "../components/page7/ball"
 
 export default function Page6() {
   let yellow = "#FFA61F"
@@ -64,20 +64,7 @@ export default function Page6() {
             alignItems: "center",
           }}
         >
-          <div
-            style={{
-              width: "37.5vw",
-              height: "44vw",
-              background: "red",
-              display: "grid",
-              gridTemplateColumns: "repeat(6, 1fr)",
-              gridTemplateRows: "repeat(6, 1fr)",
-            }}
-          >
-            {for (let index = 0; index < 42; index++) {
-                <h1>index</h1>
-            }}
-          </div>
+          <BallGrid />
         </div>
       </div>
     </Layout>

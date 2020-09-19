@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence, useAnimation } from "framer-motion"
-import useWindowSize from "../useWindowResize"
 
 export default function Number2Top() {
-  const size = useWindowSize()
-  let width = (size.width / 12) * 4 * 0.275
-
+  let animationease = [0.86, 0, 0.07, 1]
   let circleC = []
   const [c, setC] = useState(2)
 
@@ -37,6 +34,7 @@ export default function Number2Top() {
       transition={{
         delay: c === 2 ? 4 : 0,
         duration: 6,
+        ease: animationease,
       }}
       exit={{
         scale: (400 / 66) * 1.414,
@@ -80,6 +78,7 @@ export default function Number2Top() {
       transition={{
         delay: redIndex === 1 ? 2 : 0,
         duration: 6,
+        ease: animationease,
       }}
       exit={{
         scale: (400 / 66) * 1.414,
@@ -91,8 +90,6 @@ export default function Number2Top() {
       onAnimationComplete={redrenew}
     />
   )
-
-  //   top half circle
 
   let circles = []
   const [index, setIndex] = useState(0)
@@ -122,6 +119,7 @@ export default function Number2Top() {
       }}
       transition={{
         duration: 6,
+        ease: animationease,
       }}
       exit={{
         scale: (400 / 66) * 1.414,
