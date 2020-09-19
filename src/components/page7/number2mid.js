@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence, useAnimation } from "framer-motion"
-import useWindowSize from "../useWindowResize"
 
 export default function Number2Mid() {
-  const size = useWindowSize()
-
+  let animationease = [0.86, 0, 0.07, 1]
   const [index, setIndex] = useState(0)
   const [i, setI] = useState(0)
   const [c, setC] = useState(0)
@@ -42,6 +40,7 @@ export default function Number2Mid() {
       }}
       transition={{
         duration: 8,
+        ease: animationease,
       }}
       key={index}
       exit={{
@@ -73,6 +72,7 @@ export default function Number2Mid() {
       transition={{
         delay: i === 0 ? 2 : 0,
         duration: 8,
+        ease: animationease,
       }}
       key={i}
       exit={{
@@ -104,6 +104,7 @@ export default function Number2Mid() {
       transition={{
         delay: c === 0 ? 4 : 0,
         duration: 8,
+        ease: animationease,
       }}
       key={c}
       exit={{
@@ -135,6 +136,7 @@ export default function Number2Mid() {
       transition={{
         delay: d === 0 ? 6 : 0,
         duration: 8,
+        ease: animationease,
       }}
       key={d}
       exit={{
