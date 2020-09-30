@@ -9,7 +9,7 @@ export default function Number2Bot() {
   }
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence>
       <motion.div
         style={{
           width: "100%",
@@ -22,15 +22,15 @@ export default function Number2Bot() {
         //   x: "-100%",
         // }}
         animate={{
-          x: "0%",
+          x: ["-100%", "0%", "100%"],
         }}
         transition={{
-          duration: 2,
+          duration: 4,
           ease: animationease,
           delay: i === 0 ? 2 : 0,
         }}
         exit={{
-          x: "100%",
+          x: "200%",
           transition: {
             duration: 2,
             ease: animationease,
