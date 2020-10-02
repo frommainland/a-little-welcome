@@ -5,6 +5,13 @@ Document
 ========
 */
 
+/* 为p5js准备单独的样式 */
+.react-p5 {
+  display: flex;
+  height: auto;
+  max-width: fit-content;
+}
+
 /**
 Use a better box model (opinionated).
 */

@@ -343,32 +343,129 @@ function Botleft() {
 }
 
 function Botright() {
-
-
+    const [a, setA] = useState(0)
+    function renewA() {
+        setA(a + 3)
+    }
     const circleA = [
-        <motion.div
-            style={{
-                width: '3.5vw',
-                height: '7vw',
-                borderBottomRightRadius: '7vw',
-                borderTopRightRadius: '7vw',
-                background: green,
-                position: 'absolute',
-                left: 0,
-                top: '50%',
-                y: '-50%',
-                originX: 0
-            }}
-            initial={{
-                scale: 0
-            }}
-            animate={{
-                scale: [0, 1, 2.8, 5.2]
-            }}
-            transition={{
-                duration: 6
-            }}
-        />
+        <AnimatePresence>
+            <motion.div
+                style={{
+                    width: '3.5vw',
+                    height: '7vw',
+                    borderBottomRightRadius: '7vw',
+                    borderTopRightRadius: '7vw',
+                    background: a % 2 === 0 ? green : black,
+                    position: 'absolute',
+                    left: 0,
+                    top: '50%',
+                    y: '-50%',
+                    originX: 0
+                }}
+                initial={{
+                    scale: 0,
+                    zIndex: a
+                }}
+                animate={{
+                    scale: [0, 1, 2.8, 5.2]
+                }}
+                transition={{
+                    duration: 6
+                }}
+                exit={{
+                    scale: 5.2,
+                    transition: {
+                        duration: 2
+                    }
+                }}
+                key={a}
+                onAnimationComplete={renewA}
+            />
+        </AnimatePresence>
+    ]
+
+    const [b, setB] = useState(1)
+    function renewB() {
+        setB(b + 3)
+    }
+    const circleB = [
+        <AnimatePresence>
+            <motion.div
+                style={{
+                    width: '3.5vw',
+                    height: '7vw',
+                    borderBottomRightRadius: '7vw',
+                    borderTopRightRadius: '7vw',
+                    background: b % 2 !== 0 ? black : green,
+                    position: 'absolute',
+                    left: 0,
+                    top: '50%',
+                    y: '-50%',
+                    originX: 0
+                }}
+                initial={{
+                    scale: 0,
+                    zIndex: b
+                }}
+                animate={{
+                    scale: [0, 1, 2.8, 5.2]
+                }}
+                transition={{
+                    duration: 6,
+                    delay: b === 1 ? 2 : 0
+                }}
+                exit={{
+                    scale: 5.2,
+                    transition: {
+                        duration: 2
+                    }
+                }}
+                key={b}
+                onAnimationComplete={renewB}
+            />
+        </AnimatePresence>
+    ]
+
+    const [c, setC] = useState(2)
+    function renewC() {
+        setC(c + 3)
+    }
+    const circleC = [
+        <AnimatePresence>
+            <motion.div
+                style={{
+                    width: '3.5vw',
+                    height: '7vw',
+                    borderBottomRightRadius: '7vw',
+                    borderTopRightRadius: '7vw',
+                    background: c % 2 === 0 ? green : black,
+                    position: 'absolute',
+                    left: 0,
+                    top: '50%',
+                    y: '-50%',
+                    originX: 0
+                }}
+                initial={{
+                    scale: 0,
+                    zIndex: c
+                }}
+                animate={{
+                    scale: [0, 1, 2.8, 5.2]
+                }}
+                transition={{
+                    duration: 6,
+                    delay: c === 2 ? 4 : 0
+                }}
+                exit={{
+                    scale: 5.2,
+                    transition: {
+                        duration: 2
+                    }
+                }}
+                key={c}
+                onAnimationComplete={renewC}
+            />
+        </AnimatePresence>
     ]
     return (
         <div style={{
@@ -378,6 +475,8 @@ function Botright() {
             overflow: "hidden",
         }}>
             {circleA}
+            {circleB}
+            {circleC}
         </div>
     )
 }
