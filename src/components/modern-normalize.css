@@ -7,9 +7,10 @@ Document
 
 /* 为p5js准备单独的样式 */
 .react-p5 {
-  display: flex;
-  height: auto;
-  max-width: fit-content;
+  display: block;
+  z-index: 1;
+  /* height: auto;
+  max-width: fit-content; */
 }
 
 /**

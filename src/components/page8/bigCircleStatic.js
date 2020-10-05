@@ -1,11 +1,9 @@
 import React from "react"
 import { motion } from "framer-motion"
 import loadable from "@loadable/component"
-const P5 = loadable(() => import("../page8/p5"))
+const P5 = loadable(() => import("./p5"))
 
-export default function BigCircle(props) {
-    let rando = Math.floor(Math.random() * 8000)
-    // console.log(rando);
+export default function BigCircleStatic(props) {
     return (
         <motion.div style={{
             maxWidth: 'fit-content',
@@ -15,9 +13,13 @@ export default function BigCircle(props) {
             x: props.left,
             y: props.top,
             rotate: props.rotate,
-            zIndex: 1
         }}>
-            <P5 animateStartTime={rando} />
+            <div style={{
+                width: '14vw',
+                height: '14vw',
+                border: '2vw solid #686868',
+                borderRadius: '14vw'
+            }}></div>
         </motion.div>
     )
 }

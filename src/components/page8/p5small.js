@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import Sketch from "react-p5";
 
 
-export default class P5 extends Component {
+export default class P5small extends Component {
 
     setup = (p5, canvasParentRef) => {
-        p5.createCanvas(p5.windowWidth * .14, p5.windowWidth * .14).parent(canvasParentRef);
+        p5.createCanvas(p5.windowWidth * .083, p5.windowWidth * .083).parent(canvasParentRef);
         // use parent to render canvas in this ref (without that p5 render this canvas outside your component)
     };
 
     windowResized = p5 => {
-        p5.resizeCanvas(p5.windowWidth * .14, p5.windowWidth * .14)
+        p5.resizeCanvas(p5.windowWidth * .083, p5.windowWidth * .083)
     };
 
     draw = p5 => {
@@ -35,7 +35,7 @@ export default class P5 extends Component {
             const points = p5.lerp(2, 50, p5.pow(pingPong, 2.5));
 
             // Size of shape
-            const radius = p5.windowWidth * .1 / 2;
+            const radius = p5.windowWidth * .05 / 2;
 
             // Draw shape with an angle offset
             const angle = pingPong * p5.PI * 2;
