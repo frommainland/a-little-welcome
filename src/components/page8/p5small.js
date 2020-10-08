@@ -22,7 +22,7 @@ export default class P5small extends Component {
             p5.noFill();
             p5.stroke(104);
             p5.strokeJoin(p5.MITER);
-            p5.strokeWeight(p5.width * .15);
+            p5.strokeWeight(p5.width * .25);
 
             // Get time in seconds
             const time = (p5.millis() - this.props.animateStartTime) / 1000;

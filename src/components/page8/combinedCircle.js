@@ -5,7 +5,8 @@ const P5small = loadable(() => import("./p5small"))
 const P5 = loadable(() => import("./p5"))
 
 export default function CombinedCircle(props) {
-    let rando = Math.floor(Math.random() * 8000)
+    // 只有一个圆圈时不需要随机开始时间
+    // let rando = Math.floor(Math.random() * 8000)
     return (
         <motion.div style={{
             position: 'relative',
@@ -25,7 +26,7 @@ export default function CombinedCircle(props) {
                 left: '50%',
                 x: '-50%'
             }}>
-                <P5small animateStartTime={rando} />
+                <P5small animateStartTime={0} />
             </motion.div>
             <motion.div style={{
                 maxWidth: 'fit-content',
@@ -37,7 +38,7 @@ export default function CombinedCircle(props) {
                 x: '-50%',
                 top: '3.5vw'
             }}>
-                <P5 animateStartTime={rando} />
+                <P5 animateStartTime={0} />
             </motion.div>
         </motion.div>
     )
