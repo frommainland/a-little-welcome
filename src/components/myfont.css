@@ -15,3 +15,11 @@
   font-family: "harbour-bold";
   src: url("../font/Harbour-Bold.otf") format("opentype");
 }
+@font-face {
+  font-family: "tusker-grotesk-7600";
+  src: url("../font/TuskerGrotesk-7600Semibold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "tusker-grotesk-4700";
+  src: url("../font/TuskerGrotesk-4700Bold.ttf") format("truetype");
+}

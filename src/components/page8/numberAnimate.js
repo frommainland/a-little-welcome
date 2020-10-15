@@ -61,17 +61,17 @@ function Topright() {
                 width: "76.6%",
                 position: "absolute",
                 background: a % 2 === 0 ? green : black,
-                x: "13.2vw",
+                x: "15.2vw",
                 skewX: -30,
             }}
             animate={{
-                x: ["13.2vw", "7.6vw", "0vw", "-7.6vw"],
+                x: ["15.2vw", "7.6vw", "0vw", "-7.6vw"],
             }}
             transition={{
                 duration: 6,
             }}
             exit={{
-                x: "-13.2vw",
+                x: "-15.2vw",
                 transition: {
                     duration: 2,
                 },
@@ -91,18 +91,18 @@ function Topright() {
                 width: "76.6%",
                 position: "absolute",
                 background: b % 2 === 0 ? black : green,
-                x: "13.2vw",
+                x: "15.2vw",
                 skewX: -30,
             }}
             animate={{
-                x: ["13.2vw", "7.6vw", "0vw", "-7.6vw"],
+                x: ["15.2vw", "7.6vw", "0vw", "-7.6vw"],
             }}
             transition={{
                 duration: 6,
                 delay: b === 0 ? 2 : 0,
             }}
             exit={{
-                x: "-13.2vw",
+                x: "-15.2vw",
                 transition: {
                     duration: 2,
                 },
