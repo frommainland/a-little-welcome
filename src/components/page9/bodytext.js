@@ -15,9 +15,11 @@ export default function BodyText(props) {
             mixBlendMode: 'exclusion',
             fontFamily: 'gt-washeim-light',
         }}>
-            <h1 style={{
-                fontSize: '1vw'
-            }}>Reduce risk of <br />fraud and breach</h1>
+            <span style={{
+                fontSize: '1vw',
+                padding: 10,
+                border: 'solid 1px white'
+            }}>Reduce risk of fraud and breach</span>
             <h1
                 style={{
                     position: 'absolute',

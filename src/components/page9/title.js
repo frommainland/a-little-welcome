@@ -1,20 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
 
-
-// clipPath: [
-//     'inset(4% 0 31% 0)',
-//     'inset(24% 0 10% 0)',
-//     'inset(93% 0 21% 0)',
-//     'inset(62% 0 64% 0)',
-//     'inset(14% 0 79% 0)',
-//     'inset(88% 0 13% 0)',
-//     'inset(45% 0 69% 0)',
-//     'inset(10% 0 50% 0)',
-//     'inset(57% 0 44% 0)',
-//     'inset(2% 0 2% 0)',
-//     'inset(89% 0 20% 0)',
-// ]
 export default function Title(props) {
 
     function getRandomInt(max) {

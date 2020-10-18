@@ -3,114 +3,53 @@ import { motion, AnimatePresence } from "framer-motion"
 
 const red = "#FF0000"
 const black = "black"
-// const easeAnim = [.4, 0, 0, 1]
+
 const easeAnim = [0.4, 0, 0.2, 1]
+
+function TopRightUnit() {
+    return (
+        <motion.div style={{
+            width: 'auto',
+            height: '100%',
+            whiteSpace: 'nowrap',
+            display: 'inline-block'
+        }}
+            animate={{
+                x: ['0%', '-50%', '-100%']
+            }}
+            transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: easeAnim
+            }}
+        >
+            <div style={{
+                display: 'inline-block',
+                height: '100%',
+                width: '7.81vw',
+                background: red,
+            }} />
+            <div style={{
+                display: 'inline-block',
+                height: '100%',
+                width: '7.81vw',
+                background: black,
+            }} />
+        </motion.div>
+    )
+}
 function Topright() {
-    const [a, setA] = useState(0)
-    function renewA() {
-        setA(a + 1)
-    }
-    const block = [
-        <motion.div
-            style={{
-                height: "100%",
-                width: "75%",
-                position: "absolute",
-                background: a % 2 === 0 ? red : 'green',
-                x: "16vw",
-            }}
-            animate={{
-                x: ['16vw', "8vw", "0vw"],
-            }}
-            transition={{
-                duration: 4,
-            }}
-            exit={{
-                x: "-8vw",
-                transition: {
-                    duration: 2,
-                },
-            }}
-            key={a}
-            onAnimationComplete={renewA}
-        />,
-    ]
-
-    const [b, setB] = useState(0)
-    function renewB() {
-        setB(b + 1)
-    }
-    const block2 = [
-        <motion.div
-            style={{
-                height: "100%",
-                width: "75%",
-                position: "absolute",
-                background: b % 2 === 0 ? black : red,
-                x: "16vw",
-            }}
-            animate={{
-                x: ['16vw', "8vw", "0vw"],
-            }}
-            transition={{
-                duration: 4,
-                delay: b === 0 ? 2 : 0,
-            }}
-            exit={{
-                x: "-8vw",
-                transition: {
-                    duration: 2,
-                },
-            }}
-            key={b}
-            onAnimationComplete={renewB}
-        />,
-    ]
-
-    const [c, setC] = useState(0)
-    function renewC() {
-        setC(c + 1)
-    }
-    const block3 = [
-        <motion.div
-            style={{
-                height: "100%",
-                width: "75%",
-                position: "absolute",
-                background: c % 2 === 0 ? red : black,
-                x: "16vw",
-            }}
-            animate={{
-                x: ['16vw', "8vw", "0vw"],
-            }}
-            transition={{
-                duration: 4,
-                delay: c === 0 ? 4 : 0,
-            }}
-            exit={{
-                x: "-8vw",
-                transition: {
-                    duration: 2,
-                },
-            }}
-            key={c}
-            onAnimationComplete={renewC}
-        />,
-    ]
     return (
         <div
             style={{
                 gridColumn: "2 / 3",
                 gridRow: "1/3",
-                position: "relative",
-                border: 'solid 1px white'
-                // overflow: "hidden",
+                whiteSpace: 'nowrap',
+                overflow: "hidden",
             }}
         >
-            <AnimatePresence>{block}</AnimatePresence>
-            <AnimatePresence>{block2}</AnimatePresence>
-            <AnimatePresence>{block3}</AnimatePresence>
-
+            <TopRightUnit />
+            <TopRightUnit />
         </div>
     )
 }
@@ -179,7 +118,6 @@ function SlashAll() {
         <div style={{
             gridColumn: "1 / 2",
             gridRow: "1/3",
-            position: "relative",
             whiteSpace: 'nowrap',
             overflow: "hidden",
         }}>
@@ -189,6 +127,134 @@ function SlashAll() {
     )
 }
 
+function BotLeftUnit() {
+    return (
+        <motion.div style={{
+            width: '100%',
+            height: 'auto',
+            whiteSpace: 'nowrap'
+        }}
+            animate={{
+                y: ['0%', '-50%', '-100%']
+            }}
+            transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: easeAnim
+            }}
+        >
+            <div style={{
+                width: '100%',
+                height: '7.81vw',
+                background: red,
+
+            }}></div>
+            <div style={{
+                width: '100%',
+                height: '7.81vw',
+                background: black,
+
+            }}></div>
+        </motion.div>
+    )
+}
+
+function BotLeft() {
+    return (
+        <div style={{
+            gridColumn: "1 / 2",
+            gridRow: "3 / 4",
+            whiteSpace: 'nowrap',
+            overflow: "hidden",
+        }}>
+            <BotLeftUnit />
+            <BotLeftUnit />
+        </div>
+    )
+}
+
+function BotRightUnit() {
+    return (
+        <motion.div style={{
+            width: '100%',
+            height: 'auto',
+        }}
+            animate={{
+                y: ['0%', '-37.3%', '-74.6%'],
+                x: ['0%', '-74.6%', '-149.2%'],
+            }}
+            transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: easeAnim
+            }}>
+            <div style={{
+                background: red,
+                height: '10.41vw',
+                width: '100%',
+                // position: 'relative'
+            }}></div>
+            <div style={{
+                background: black,
+                height: '10.41vw',
+                width: '100%',
+                position: 'relative',
+                left: '7.77vw',
+                top: '-2.63vw'
+
+            }}></div>
+        </motion.div>
+    )
+}
+function BotRightUnit2() {
+    return (
+        <motion.div style={{
+            width: '100%',
+            height: 'auto',
+            position: 'relative',
+            left: '15.54vw',
+            top: '-5.26vw'
+        }}
+            animate={{
+                y: ['0%', '-37.3%', '-74.6%'],
+                x: ['0%', '-74.6%', '-149.2%'],
+            }}
+            transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: easeAnim
+            }}>
+            <div style={{
+                background: red,
+                height: '10.41vw',
+                width: '100%',
+
+            }}></div>
+            <div style={{
+                background: black,
+                height: '10.41vw',
+                width: '100%',
+                position: 'relative',
+                left: '7.77vw',
+                top: '-2.63vw'
+
+            }}></div>
+        </motion.div>
+    )
+}
+
+function BotRight() {
+    return (
+        <div style={{
+            gridColumn: "2 / 3",
+            gridRow: "3 / 4",
+            overflow: "hidden"
+        }}>
+            <BotRightUnit />
+            <BotRightUnit2 />
+        </div>
+    )
+}
 export default function NumberAnimate() {
     return (
         <div
@@ -198,9 +264,13 @@ export default function NumberAnimate() {
                 display: "grid",
                 gridTemplateColumns: "1fr 1fr",
                 gridTemplateRows: "repeat(3, 1fr)",
+                gap: 4
             }}
         >
             <SlashAll />
+            <Topright />
+            <BotLeft />
+            <BotRight />
         </div>
     )
 }
