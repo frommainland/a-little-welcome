@@ -60,6 +60,11 @@ const IndexPage = () => (
                         <sup>玖</sup>数字支付
                     </li>
                 </Link>
+                <Link to="/page-10">
+                    <li>
+                        <sup>拾</sup>银行标识代码
+                    </li>
+                </Link>
             </ul>
         </div>
         <P5 />

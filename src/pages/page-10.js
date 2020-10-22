@@ -1,14 +1,14 @@
 import React from "react"
 
 import Layout from "../components/layout"
+import { motion } from "framer-motion"
 import LeftNav from "../components/leftNav"
 import "../components/myfont.css"
-import Title from '../components/page9/title'
-import BodyText from '../components/page9/bodytext'
-import NumberAnimate from '../components/page9/numberAnimate'
+import loadable from "@loadable/component"
+const P5 = loadable(() => import("../components/page10/p5"))
 
 
-export default function Page9() {
+export default function Page10() {
     return (
         <Layout>
             <div
@@ -32,7 +32,6 @@ export default function Page9() {
                         alignItems: "center",
                     }}
                 >
-                    <NumberAnimate />
                 </div>
 
                 {/* 右侧文字区 */}
@@ -47,9 +46,7 @@ export default function Page9() {
                         color: 'white'
                     }}
                 >
-                    <Title />
-                    <Title />
-                    <BodyText />
+                    <P5 />
                 </div>
             </div>
         </Layout>

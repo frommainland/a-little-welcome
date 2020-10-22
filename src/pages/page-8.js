@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import { motion } from "framer-motion"
@@ -9,7 +8,7 @@ import NumberAnimate from "../components/page8/numberAnimate"
 import BigCircle from '../components/page8/bigCircle'
 import BigCircleStatic from '../components/page8/bigCircleStatic'
 import BigLineStatic from '../components/page8/bigLineStatic'
-import CombinedCircle from "../components/page8/combinedCircle"
+// import CombinedCircle from "../components/page8/combinedCircle"
 import CombinedCircleStatic from "../components/page8/combinedCircleStatic"
 import SmallDot from "../components/page8/smallDot"
 

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import { motion, AnimatePresence } from "framer-motion"
 import LeftNav from "../components/leftNav"
 import "../components/myfont.css"
