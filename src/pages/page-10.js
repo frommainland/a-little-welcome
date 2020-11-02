@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { motion } from "framer-motion"
 import LeftNav from "../components/leftNav"
+import Title from '../components/page10/title'
 import "../components/myfont.css"
 import loadable from "@loadable/component"
 const P5 = loadable(() => import("../components/page10/p5"))
@@ -32,13 +33,12 @@ export default function Page10() {
                         alignItems: "center",
                     }}
                 >
+                    <Title />
                 </div>
 
                 {/* 右侧文字区 */}
 
                 <div
-                    animate={{
-                    }} v
                     style={{
                         gridColumn: "6 / 13",
                         position: 'relative',

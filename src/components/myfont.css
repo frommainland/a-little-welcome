@@ -23,3 +23,16 @@
   font-family: "tusker-grotesk-4700";
   src: url("../font/TuskerGrotesk-4700Bold.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "cindieZ";
+  src: url("../font/Cindie2-Z.ttf") format("truetype");
+}
+@font-face {
+  font-family: "cindieH";
+  src: url("../font/Cindie2-H.ttf") format("truetype");
+}
+@font-face {
+  font-family: "cindieM";
+  src: url("../font/Cindie2-M.ttf") format("truetype");
+}
