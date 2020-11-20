@@ -49,7 +49,7 @@ export default function Title(props) {
         after: {
             y: ['-3.5vw', '0vw', '0vw', '3.5vw'],
             transition: {
-                duration: 3.8,
+                duration: 3.8 * 2,
                 times: [0, .06, .93, 1],
                 repeat: Infinity,
                 ease: ease

@@ -19,7 +19,8 @@ function Symbol(p5, x, y, size) {
     this.setToRandomSymbol()
     this.render = function (index) {
         p5.textSize(this.size)
-        p5.textFont(myfont)
+        //p5.textFont(myfont)
+        // p5.textFont()
         if (index === 0) {
             p5.fill(242, 174, 20)
         } else {
@@ -77,16 +78,17 @@ export default class P5 extends Component {
         p5.resizeCanvas(p5.windowWidth / 12 * 7, p5.windowHeight)
     };
 
-    preload = p5 => {
-        //font 只能放到public里面 而且不要写路径名称
-        myfont = p5.loadFont('Cindie2-M.ttf')
-    }
+    // preload = p5 => {
+    //     //font 只能放到public里面 而且不要写路径名称 deploy的时候还是不行
+    //     myfont = p5.loadFont('Cindie2-M.ttf')
+    // }
 
 
     setup = (p5, canvasParentRef) => {
-        // p5.frameRate(30)
+        p5.frameRate(20)
         p5.createCanvas(p5.windowWidth / 12 * 7, p5.windowHeight).parent(canvasParentRef);
         //创建new ()里面要写上p5
+
         let totalStream = 80
         for (let index = 0; index < 80; index++) {
             allStream.push(new Stream(p5, index * (p5.width / totalStream), p5.random(0, p5.height), p5.random(4, 10)))
