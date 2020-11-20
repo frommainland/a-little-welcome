@@ -5,8 +5,9 @@ import { motion } from "framer-motion"
 import LeftNav from "../components/leftNav"
 import Title from '../components/page10/title'
 import "../components/myfont.css"
-import loadable from "@loadable/component"
-const P5 = loadable(() => import("../components/page10/p5"))
+// import loadable from "@loadable/component"
+// const P5 = loadable(() => import("../components/page10/p5"))
+import P5 from '../components/page10/p5'
 
 
 export default function Page10() {
