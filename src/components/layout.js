@@ -14,7 +14,7 @@ import Header from "./header"
 import "./modern-normalize.css"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
+    const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
@@ -24,30 +24,30 @@ const Layout = ({ children }) => {
     }
   `)
 
-  return (
-    <>
-      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
-      <div
-        style={{
-          height: "100vh",
-          width: "100vw",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <main>{children}</main>
-        {/* <footer>
+    return (
+        <>
+            {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
+            <div
+                style={{
+                    height: "100%",
+                    width: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                }}
+            >
+                <main>{children}</main>
+                {/* <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer> */}
-      </div>
-    </>
-  )
+            </div>
+        </>
+    )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
 }
 
 export default Layout

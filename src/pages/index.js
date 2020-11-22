@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
-// import P5 from '../components/p5'
 import Timer from "../components/timer"
 import style from "../components/index.module.css"
 
@@ -17,57 +16,73 @@ const IndexPage = () => (
             <ul className={style.list}>
                 <Link to="/page-1">
                     <li>
-                        <sup>壹</sup>跑马灯和网格
+                        <sup>1.</sup>跑马灯和网格
                     </li>
                 </Link>
                 <Link to="/page-2">
                     <li>
-                        <sup>贰</sup>律动竖线
+                        <sup>2.</sup>律动竖线
                     </li>
                 </Link>
                 <Link to="/page-3">
                     <li>
-                        <sup>叁</sup>中心时钟
+                        <sup>3.</sup>中心时钟
                     </li>
                 </Link>
                 <Link to="/page-4">
                     <li>
-                        <sup>肆</sup>线段排列
+                        <sup>4.</sup>线段排列
                     </li>
                 </Link>
                 <Link to="/page-5">
                     <li>
-                        <sup>伍</sup>元素
+                        <sup>5.</sup>元素
                     </li>
                 </Link>
                 <Link to="/page-6">
                     <li>
-                        <sup>陆</sup>移动销售终端
+                        <sup>6.</sup>移动销售终端
                     </li>
                 </Link>
                 <Link to="/page-7">
                     <li>
-                        <sup>柒</sup>生物识别
+                        <sup>7.</sup>生物识别
                     </li>
                 </Link>
                 <Link to="/page-8">
                     <li>
-                        <sup>捌</sup>物联网
+                        <sup>8.</sup>物联网
                     </li>
                 </Link>
                 <Link to="/page-9">
                     <li>
-                        <sup>玖</sup>数字支付
+                        <sup>9.</sup>数字支付
                     </li>
                 </Link>
                 <Link to="/page-10">
                     <li>
-                        <sup>拾</sup>银行标识代码
+                        <sup>10.</sup>银行标识代码
+                    </li>
+                </Link>
+                <Link to="/page-11">
+                    <li>
+                        <sup>11.</sup>心驰所向
                     </li>
                 </Link>
             </ul>
         </div>
-        <P5 />
+        <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            height: '100vh',
+            width: '100vw',
+            overflow: 'hidden',
+            zIndex: -1,
+        }}>
+            <P5 />
+        </div>
+
     </Layout>
 )
 

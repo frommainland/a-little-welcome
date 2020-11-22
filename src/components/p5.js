@@ -8,11 +8,12 @@ let px, py
 export default class P5 extends Component {
 
     setup = (p5, canvasParentRef) => {
-        p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef); // use parent to render canvas in this ref (without that p5 render this canvas outside your component)
+        p5.createCanvas(p5.windowWidth, p5.windowHeight * 5).parent(canvasParentRef); // use parent to render canvas in this ref (without that p5 render this canvas outside your component)
         px = p5.width / 2;
         py = p5.height / 2;
         p5.mouseX = p5.width / 2;
         p5.mouseY = p5.height / 2
+
 
     };
 
