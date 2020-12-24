@@ -33,6 +33,7 @@ const Layout = ({ children }) => {
                     width: "100%",
                     display: "flex",
                     flexDirection: "column",
+
                 }}
             >
                 <main>{children}</main>

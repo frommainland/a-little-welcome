@@ -32,34 +32,41 @@ export default function Page11() {
 
     return (
         <Layout>
-            <div style={{
-                position: 'fixed',
-                left: 10,
-                top: 10,
-                width: 150,
-                height: 30,
-                backgroundColor: 'white',
-                color: 'black'
-            }}>
-                {`window height ${size.height}`}
-            </div>
+            {/* 显示一个页面高度和scrollY 发布后删除 */}
+            <div>
+                <div style={{
+                    position: 'fixed',
+                    left: 10,
+                    top: 10,
+                    width: 150,
+                    height: 30,
+                    backgroundColor: 'white',
+                    color: 'black',
+                    zIndex: 100
+                }}>
+                    {`window height ${size.height}`}
+                </div>
 
-            <div style={{
-                position: 'fixed',
-                left: 10,
-                top: 50,
-                width: 150,
-                height: 30,
-                backgroundColor: 'white',
-                color: 'black'
-            }}>
-                {`scrollY ${currentY}`}
+                <div style={{
+                    position: 'fixed',
+                    left: 10,
+                    top: 50,
+                    width: 150,
+                    height: 30,
+                    backgroundColor: 'white',
+                    color: 'black',
+                    zIndex: 100
+                }}>
+                    {`scrollY ${currentY}`}
+                </div>
             </div>
 
             <S1 />
             <div style={{
+                position: 'relative',
+                top: '200vh',
                 height: '100vh',
-                width: 'auto',
+                width: '100%',
                 background: 'red'
             }}></div>
         </Layout>
