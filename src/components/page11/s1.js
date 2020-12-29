@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from "react"
-import { motion, useTransform, useViewportScroll } from "framer-motion"
+import { motion, useTransform, useViewportScroll, useAnimation } from "framer-motion"
 import "../../components/myfont.css"
 import useWindowSize from '../useWindowSize'
-
+import useWindowPosition from '../useWindowPos'
 
 import home1 from '../../images/page11/home.jpg'
 import s1Left from '../../images/page11/s1BoxLeft.jpg'
@@ -11,7 +11,19 @@ import s1Right from '../../images/page11/s1BoxRight.jpg'
 import s1Clip from '../../images/page11/clipPath.svg'
 import arrow from '../../images/page11/arrow-down.svg'
 
-export default function S1(props) {
+export default function S1() {
+
+    const scrollPosition = useWindowPosition()
+
+    useEffect(() => {
+        if (scrollPosition > 300) {
+            animation.start('big')
+        } else {
+            animation.start('small')
+        }
+    }, [animation, scrollPosition])
+
+    const animation = useAnimation()
 
     const { scrollY } = useViewportScroll()
 
@@ -33,20 +45,22 @@ export default function S1(props) {
         ['0 0px 0px 0 rgba(0,0,0,0.0)', '0 4px 8px 0 rgba(0,0,0,0.5)']
     )
 
-    //盒子往上滑阈值
-    // const [isOn, setOn] = useState(false)
-
-    // if (currentY > size.height) {
-    //     setOn(true)
-    // } else {
-    //     setOn(false)
-    // }
-
     // 2个mask盒子参数
+
     const s1BoxOpacity = useTransform(
         scrollY,
         [0, size.height / 2],
         [0, 1]
+    )
+
+    //左边mask盒子
+
+    //calc(-23vh) 就是-23vh就是盒子高度的一半，一般情况下居中写成y:-50%,但是百分比transform之后不能每滚一次速度变化不能同步
+    const s1BoxLeftY = useTransform(
+        scrollY,
+        [-size.height, size.height, size.height + 1],
+        ['calc(-23vh - 1px)', 'calc(-23vh - 0px)', 'calc(-23vh - 1px)'],
+        { clamp: false }
     )
 
     const s1BoxclipLeft = useTransform(
@@ -67,8 +81,23 @@ export default function S1(props) {
     )
 
 
+    //右边mask盒子
+    const s1BoxRightY = useTransform(
+        scrollY,
+        [-size.height, size.height, size.height + 1],
+        ['calc(-15vh - 1px)', 'calc(-15vh - 0px)', 'calc(-15vh - 1.5px)'],
+        { clamp: false }
+    )
+
+    const s1BoxclipRight = useTransform(
+        scrollY,
+        [0, size.height / 2],
+        ['inset(0% 0% 0% 100% round 0px)', 'inset(0% 0% 0% 0% round 10px)']
+    )
+
     return (
         <div>
+            {/* 背景大图 */}
             <motion.div style={{
                 height: '100vh',
                 width: '100vw',
@@ -79,7 +108,25 @@ export default function S1(props) {
                 position: 'fixed',
             }}>
             </motion.div>
-            {console.log(scrollY)}
+
+            {/* 测试 */}
+            <motion.div
+                style={{
+                    width: 200,
+                    height: 200,
+                    backgroundColor: 'green',
+                    position: 'fixed',
+                    right: 0
+                }}
+                initial="small"
+                animate={animation}
+                variants={{
+                    big: { opacity: 1, x: 0 },
+                    small: { opacity: 0, x: 300 }
+                }}
+            />
+
+
             {/* mask中间方块 */}
             <motion.div style={{
                 width: '41.8vh',
@@ -102,11 +149,10 @@ export default function S1(props) {
                 filter: s1BoxShadow,
                 width: '34vh',
                 height: '47vh',
-                // position: isOn ? 'fixed' : 'absolute',
                 position: 'fixed',
                 top: '50%',
-                y: '-50%',
-                left: '22vw',
+                y: s1BoxLeftY,
+                left: '25vw',
             }}>
                 <motion.div
                     style={{
@@ -120,6 +166,28 @@ export default function S1(props) {
                     }}>
                 </motion.div>
             </motion.div>
+
+            {/* mask右边方块 */}
+            <motion.div style={{
+                filter: s1BoxShadow,
+                width: '47vh',
+                height: '30vh',
+                position: 'fixed',
+                top: '50%',
+                y: s1BoxRightY,
+                right: '16vw',
+            }}>
+                <motion.div style={{
+                    width: '100%',
+                    height: '100%',
+                    backgroundImage: `url(${s1Right})`,
+                    backgroundSize: '120% auto',
+                    opacity: s1BoxOpacity,
+                    clipPath: s1BoxclipRight,
+                    backgroundPosition: `${moveX.current} 50%`,
+                }} />
+            </motion.div>
+
 
 
             {/* 文字标题 */}
@@ -159,7 +227,7 @@ export default function S1(props) {
                 bottom: 50,
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
             }}>
                 <motion.div style={{
                     width: 24,
