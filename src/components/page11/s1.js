@@ -13,17 +13,22 @@ import arrow from '../../images/page11/arrow-down.svg'
 
 export default function S1() {
 
-    const scrollPosition = useWindowPosition()
+    const smooth = [.4, 0, 0, 1]
 
+    const scrollPosition = useWindowPosition()
+    const animation = useAnimation()
+    const wrapAnim = useAnimation()
     useEffect(() => {
-        if (scrollPosition > 300) {
-            animation.start('big')
+        if (scrollPosition > 50) {
+            animation.start('down')
+            wrapAnim.start({ scale: 0, transition: { duration: 1 } })
         } else {
-            animation.start('small')
+            animation.start('upDown')
+            wrapAnim.start({ scale: 1 })
         }
     }, [animation, scrollPosition])
 
-    const animation = useAnimation()
+
 
     const { scrollY } = useViewportScroll()
 
@@ -215,26 +220,47 @@ export default function S1() {
                 }}>随时随地，放心支付。</p>
             </motion.div >
 
-            {/* 箭头 */}
-            <motion.div style={{
-                height: 60,
-                width: 60,
-                borderRadius: 60,
-                border: '2px solid white',
-                position: 'absolute',
-                x: '-50%',
-                left: '50%',
-                bottom: 50,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}>
+            {/* 箭头wrap */}
+            <motion.div
+                style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 60,
+                    border: '2px solid white',
+                    position: 'absolute',
+                    x: '-50%',
+                    left: '50%',
+                    bottom: 50,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    overflow: 'hidden',
+                    position: 'fixed'
+                }}
+                animate={wrapAnim}
+            >
+                {/* 箭头 */}
                 <motion.div style={{
                     width: 24,
                     height: 24,
+                    marginTop: -50,
                     background: `url(${arrow})`,
                     backgroundSize: 'contain'
-                }}></motion.div>
+                }}
+                    variants={{
+                        upDown: {
+                            y: 50,
+                            transition: {
+                                repeat: Infinity,
+                                repeatType: 'mirror',
+                                ease: smooth,
+                                duration: 2
+                            }
+                        },
+                        down: { y: [0, 100] }
+                    }}
+                    animate={animation}
+                />
             </motion.div>
 
         </div>
