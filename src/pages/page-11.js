@@ -5,6 +5,7 @@ import "../components/myfont.css"
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import useWindowSize from '../components/useWindowSize'
 import S1 from '../components/page11/s1'
+import S2 from '../components/page11/s2'
 //images links
 import home1 from '../images/page11/home.jpg'
 import arrow from '../images/page11/arrow-down.svg'
@@ -60,13 +61,15 @@ export default function Page11() {
             </div>
 
             <S1 />
+            <S2 />
             <div style={{
-                position: 'relative',
                 top: '200vh',
                 height: '100vh',
                 width: '100%',
-                background: 'red'
+                background: 'green',
+                position: 'relative'
             }}></div>
+
         </Layout>
     )
 }
