@@ -7,30 +7,30 @@ import useWindowPosition from '../useWindowPos'
 
 export default function S2() {
 
-    // const scrollPosition = useWindowPosition()
-    // const size = useWindowSize();
+    const scrollPosition = useWindowPosition()
+    const size = useWindowSize();
 
-    // const { scrollY } = useViewportScroll()
-    // const y = useTransform(
-    //     scrollY,
-    //     [0, 1],
-    //     [0, 1],
-    //     { clamp: false }
-    // )
+    const { scrollY } = useViewportScroll()
+    const y = useTransform(
+        scrollY,
+        [0, 1],
+        [0, 1],
+        { clamp: false }
+    )
 
-    const [offset, setOffset] = useState(0);
+    // const [offset, setOffset] = useState(0);
 
-    useEffect(() => {
-        function handleScroll() {
-            setOffset(window.pageYOffset);
-        }
+    // useEffect(() => {
+    //     function handleScroll() {
+    //         setOffset(window.pageYOffset);
+    //     }
 
-        window.addEventListener("scroll", handleScroll);
+    //     window.addEventListener("scroll", handleScroll);
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, [offset]);
+    //     return () => {
+    //         window.removeEventListener("scroll", handleScroll);
+    //     };
+    // }, [offset]);
 
 
 
@@ -54,7 +54,7 @@ export default function S2() {
                 top: 'calc((100vh + 65.4vh + (100vh - 65.4vh)/2) * -1)',
                 left: '50%',
                 x: '-50%',
-                y: offset,
+                y: scrollY,
             }}>
             </motion.div>
         </div>

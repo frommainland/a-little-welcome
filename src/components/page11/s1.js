@@ -9,6 +9,7 @@ import home1 from '../../images/page11/home.jpg'
 import s1Left from '../../images/page11/s1BoxLeft.jpg'
 import s1Right from '../../images/page11/s1BoxRight.jpg'
 import s1Clip from '../../images/page11/clipPath.svg'
+import s1MidMask from '../../images/page11/s1MidMask.svg'
 import arrow from '../../images/page11/arrow-down.svg'
 
 export default function S1() {
@@ -108,7 +109,7 @@ export default function S1() {
                 width: '100vw',
                 maxWidth: '100%',
                 background: `url(${home1})`,
-                backgroundSize: '100vw auto',
+                backgroundSize: 'cover',
                 opacity: fadeOut,
                 position: 'fixed',
             }}>
@@ -133,21 +134,28 @@ export default function S1() {
 
 
             {/* mask中间方块 */}
-            <motion.div style={{
-                width: '41.8vh',
-                height: '65.4vh',
+            <div style={{
+                // width: '41.8vh',
+                // height: '65.4vh',
+                height: '100vh',
+                width: '100vw',
+                maxWidth: '100%',
+                //clipPath: "inset(17.2% 38.8% 17.2% 38.8% round 10px)",
                 borderRadius: 8,
                 boxShadow: boxShadow1,
                 position: 'fixed',
-                top: '50%',
-                left: '50%',
-                x: '-50%',
-                y: '-50%',
+                // top: '50%',
+                // left: '50%',
+                // x: '-50%',
+                // y: '-50%',
                 background: `url(${home1})`,
-                backgroundPosition: '50% 50%',
-                backgroundSize: '100vw auto',
+                backgroundSize: 'cover',
+                maskImage: `url(${s1MidMask})`,
+                maskSize: '10vh',
+                maskRepeat: 'no-repeat',
+                maskPosition: 'center'
             }}>
-            </motion.div>
+            </div>
 
             {/* mask左边方块 */}
             <motion.div style={{
