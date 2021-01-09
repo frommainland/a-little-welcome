@@ -38,8 +38,6 @@ export default function Page9() {
                 {/* 右侧文字区 */}
 
                 <div
-                    animate={{
-                    }} v
                     style={{
                         gridColumn: "6 / 13",
                         position: 'relative',

@@ -8,5 +8,7 @@
   },
   "emmet.syntaxProfiles": {
     "javascript": "jsx"
-  }
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
