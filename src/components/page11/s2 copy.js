@@ -1,40 +1,39 @@
 import React, { useState, useEffect } from "react"
-import { motion, useTransform, useAnimation } from "framer-motion"
+import {
+    motion,
+    useTransform,
+    useViewportScroll,
+    useAnimation,
+} from "framer-motion"
 import "../../components/myfont.css"
 import useWindowSize from "../useWindowSize"
 import useWindowPosition from "../useWindowPos"
 
-import useInView from "react-cool-inview"
-
-import dollar from "../../images/page11/dollar.svg"
-
+import { useInView } from "react-intersection-observer"
 const smooth = [0.4, 0, 0, 1]
-const flow = [0.4, 0, 0.2, 1]
 
 function SmallCap(props) {
-    const [enter, setEnter] = useState(false)
-    const [leave, setLeave] = useState(false)
-
-    const {
-        ref,
-        scrollDirection: { vertical },
-    } = useInView({
-        onEnter: () => {
-            setEnter(true)
-            setLeave(false)
-        },
-        onLeave: () => {
-            setLeave(true)
-            setEnter(false)
-        },
+    const controls = useAnimation()
+    const [ref, inView] = useInView({
+        triggerOnce: true,
         rootMargin: "-100px 0px",
     })
+
+    useEffect(() => {
+        if (inView) {
+            controls.start("visible")
+        } else {
+            controls.start("hidden")
+        }
+    }, [controls, inView])
 
     return (
         <motion.div
             ref={ref}
-            animate={leave && vertical === "down" ? "hidden" : "visible"}
+            animate={controls}
+            initial="hidden"
             style={{
+                // position: "relative",
                 fontSize: 30,
                 color: "#FFFFFF",
                 letterSpacing: -0.23,
@@ -57,28 +56,22 @@ function SmallCap(props) {
 }
 
 function Title(props) {
-    const [enter, setEnter] = useState(false)
-    const [leave, setLeave] = useState(false)
+    const controls = useAnimation()
+    const [ref, inView] = useInView()
 
-    const {
-        ref,
-        scrollDirection: { vertical },
-    } = useInView({
-        onEnter: () => {
-            setEnter(true)
-            setLeave(false)
-        },
-        onLeave: () => {
-            setLeave(true)
-            setEnter(false)
-        },
-        rootMargin: "-100px 0px",
-    })
+    useEffect(() => {
+        if (inView) {
+            controls.start("visible")
+        } else {
+            controls.start("hidden")
+        }
+    }, [controls, inView])
 
     return (
         <motion.div
             ref={ref}
-            animate={leave && vertical === "down" ? "hidden" : "visible"}
+            animate={controls}
+            initial="hidden"
             variants={{
                 visible: {
                     opacity: 1,
@@ -103,13 +96,7 @@ export default function S2() {
     const scrollPosition = useWindowPosition()
     const size = useWindowSize()
 
-    //圆圈背景触发
-    const { ref, inView } = useInView({})
-    let trigger = false
-    if (inView) {
-        trigger = true
-    }
-    console.log(trigger)
+    const { scrollY } = useViewportScroll()
 
     return (
         <div
@@ -122,45 +109,6 @@ export default function S2() {
                 overflow: "hidden",
             }}
         >
-            {/* 背景圆圈触发 */}
-            <div
-                style={{
-                    width: 999,
-                    height: 5,
-                    backgroundColor: "yellow",
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                }}
-                ref={ref}
-            ></div>
-
-            {/* 圆圈组 */}
-            <motion.img
-                src={require("../../images/page11/dollar.svg")}
-                style={{
-                    width: "9vh",
-                    position: "absolute",
-                    x: 30,
-                    y: size.height,
-                }}
-                animate={trigger ? "move" : "still"}
-                variants={{
-                    move: {
-                        y: [size.height, size.height / 2, -size.height * 0.09],
-                        rotate: [0, 20, 200],
-                        transition: {
-                            duration: 20,
-                            times: [0, 0.3, 1],
-                            ease: [smooth, "easeIn"],
-                            repeat: Infinity,
-                        },
-                    },
-                    still: { y: size.height },
-                }}
-            />
-
             {/* 中间长方形,fixed */}
             <motion.div
                 style={{
@@ -169,22 +117,22 @@ export default function S2() {
                     borderRadius: 8,
                     backgroundColor: "#241F5D",
                     boxShadow: "0 20px 40px 0 rgba(0,0,0,0.50)",
-                    position: "relative",
+                    position: "absolute",
                     top: "calc((100vh + 65.4vh + (100vh - 65.4vh)/2) * -1)",
                     left: "50%",
                     x: "-50%",
-                    y: scrollPosition,
+                    y: scrollY,
                 }}
             ></motion.div>
-            {/* 标题文字组 */}
+
             <motion.div
                 style={{
-                    position:
-                        scrollPosition < size.height * 2 ? "absolute" : "fixed",
+                    position: "absolute",
                     top: "50%",
                     left: "50%",
                     x: "-50%",
-                    y: "-50%",
+                    // y: "-50%",
+                    y: scrollY > size.height * 2 ? scrollY : "-50%",
                     width: "80%",
                 }}
             >
@@ -196,6 +144,18 @@ export default function S2() {
                     bottom={24}
                 />
                 <Title content="享受到便利的数字支付服务。" />
+            </motion.div>
+
+            <motion.div
+                style={{
+                    color: "white",
+                    position: "relative",
+                    left: 50,
+                    top: 500,
+                    y: scrollPosition > size.height * 2 ? -200 : 200,
+                }}
+            >
+                test
             </motion.div>
         </div>
     )
