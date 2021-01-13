@@ -3,10 +3,8 @@ import { motion, useTransform, useAnimation } from "framer-motion"
 import "../../components/myfont.css"
 import useWindowSize from "../useWindowSize"
 import useWindowPosition from "../useWindowPos"
-
+import BgCircles from "./s2-Circles"
 import useInView from "react-cool-inview"
-
-import dollar from "../../images/page11/dollar.svg"
 
 const smooth = [0.4, 0, 0, 1]
 const flow = [0.4, 0, 0.2, 1]
@@ -104,12 +102,11 @@ export default function S2() {
     const size = useWindowSize()
 
     //圆圈背景触发
-    const { ref, inView } = useInView({})
     let trigger = false
+    const { ref, inView } = useInView({ unobserveOnEnter: true })
     if (inView) {
         trigger = true
     }
-    console.log(trigger)
 
     return (
         <div
@@ -122,44 +119,8 @@ export default function S2() {
                 overflow: "hidden",
             }}
         >
-            {/* 背景圆圈触发 */}
-            <div
-                style={{
-                    width: 999,
-                    height: 5,
-                    backgroundColor: "yellow",
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                }}
-                ref={ref}
-            ></div>
-
-            {/* 圆圈组 */}
-            <motion.img
-                src={require("../../images/page11/dollar.svg")}
-                style={{
-                    width: "9vh",
-                    position: "absolute",
-                    x: 30,
-                    y: size.height,
-                }}
-                animate={trigger ? "move" : "still"}
-                variants={{
-                    move: {
-                        y: [size.height, size.height / 2, -size.height * 0.09],
-                        rotate: [0, 20, 200],
-                        transition: {
-                            duration: 20,
-                            times: [0, 0.3, 1],
-                            ease: [smooth, "easeIn"],
-                            repeat: Infinity,
-                        },
-                    },
-                    still: { y: size.height },
-                }}
-            />
+            {/* 背景圆圈动画 */}
+            <BgCircles />
 
             {/* 中间长方形,fixed */}
             <motion.div
