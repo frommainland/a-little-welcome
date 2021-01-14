@@ -10,6 +10,7 @@ const smooth = [0.4, 0, 0, 1]
 const flow = [0.4, 0, 0.2, 1]
 const bouncy = [0.86, 0, 0.07, 1]
 let trigger = false
+const lerp = (a, b, n) => (1 - n) * a + n * b
 
 function Trigger() {
     const { ref, inView } = useInView({ unobserveOnEnter: true })
@@ -100,7 +101,6 @@ function Currency2(props) {
 
 export default function BgCircles() {
     const scrollPosition = useWindowPosition()
-
     return (
         <div>
             {/* 背景圆圈触发 */}
@@ -109,7 +109,11 @@ export default function BgCircles() {
             <Currency name="dollar" left="10vw" width="9vh" delay={0} />
             <Currency2 name="riyal" left="16vw" width="6vh" delay={3} />
             <Currency name="rmb" left="27vw" width="8vh" delay={8} />
-            <Currency name="euro" left="86vw" width="9vh" delay={2} />
+            <Currency name="lira" left="33vw" width="8vh" delay={9} />
+            <Currency2 name="php" left="40vw" width="8vh" delay={2} />
+            <Currency2 name="krw" left="5vw" width="6vh" delay={2} />
+            <Currency2 name="krona" left="68vw" width="6vh" delay={5} />
+            <Currency name="euro" left="86vw" width="9vh" delay={6} />
             <Currency2 name="pound" left="76vw" width="8vh" />
             <Currency name="rupee" left="80vw" width="8vh" delay={4} />
         </div>
