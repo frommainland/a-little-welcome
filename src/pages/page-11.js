@@ -6,9 +6,9 @@ import { motion, useViewportScroll, useTransform } from "framer-motion"
 import useWindowSize from "../components/useWindowSize"
 import S1 from "../components/page11/s1"
 import S2 from "../components/page11/s2"
+import S3 from "../components/page11/s3"
+import S3MidCard from "../components/page11/s3MidCard"
 //images links
-import home1 from "../images/page11/home.jpg"
-import arrow from "../images/page11/arrow-down.svg"
 
 export default function Page11() {
     const size = useWindowSize()
@@ -62,12 +62,14 @@ export default function Page11() {
 
             <S1 />
             <S2 />
+            <S3 />
+
             <div
                 style={{
                     top: "200vh",
                     height: "100vh",
                     width: "100%",
-                    background: "white",
+                    background: "red",
                     position: "relative",
                 }}
             ></div>

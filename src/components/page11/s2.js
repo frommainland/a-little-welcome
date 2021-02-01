@@ -109,7 +109,7 @@ export default function S2() {
     }
 
     return (
-        <div
+        <div className='s2'
             style={{
                 position: "relative",
                 top: "200vh",
