@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="77px" height="76px" viewBox="0 0 77 76" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>cardchip</title>
+    <defs>
+        <rect id="path-1" x="-1.42108547e-14" y="1.0658141e-13" width="76" height="76" rx="20"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy-9" transform="translate(-654.000000, -157.000000)">
+            <g id="visa" transform="translate(560.000000, 132.000000)">
+                <g id="cardchip" transform="translate(94.476190, 25.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Rectangle" fill="#EFEFEF" xlink:href="#path-1"></use>
+                    <rect id="Rectangle" fill="#939393" mask="url(#mask-2)" x="-1.42108547e-14" y="37.8787879" width="76.1904762" height="1"></rect>
+                    <rect id="Rectangle" fill="#939393" mask="url(#mask-2)" x="38.0952381" y="1.0658141e-13" width="1" height="75.7575758"></rect>
+                    <rect id="Rectangle" stroke="#979797" fill="#EFEFEF" mask="url(#mask-2)" x="25.6428571" y="25.5" width="24.9047619" height="24.7575758"></rect>
+                    <path d="M25.5238095,25.3787879 C20.952381,20.8333333 18.6666667,18.5606061 18.6666667,18.5606061 C18.6666667,18.5606061 18.6666667,12.3737374 18.6666667,5.5067062e-14" id="Line-4" stroke="#979797" stroke-linecap="square" mask="url(#mask-2)"></path>
+                    <path d="M57.1428571,25.3787879 C52.5714286,20.8333333 50.2857143,18.5606061 50.2857143,18.5606061 C50.2857143,18.5606061 50.2857143,12.3737374 50.2857143,5.5067062e-14" id="Line-4-Copy" stroke="#979797" stroke-linecap="square" mask="url(#mask-2)" transform="translate(53.714286, 12.689394) scale(-1, 1) translate(-53.714286, -12.689394) "></path>
+                    <g id="Group" mask="url(#mask-2)" stroke="#979797" stroke-linecap="square">
+                        <g transform="translate(38.095238, 62.878788) scale(1, -1) translate(-38.095238, -62.878788) translate(18.666667, 50.000000)">
+                            <path d="M6.85714286,25.3787879 C2.28571429,20.8333333 0,18.5606061 0,18.5606061 C0,18.5606061 0,12.3737374 0,0" id="Line-4"></path>
+                            <path d="M38.4761905,25.3787879 C33.9047619,20.8333333 31.6190476,18.5606061 31.6190476,18.5606061 C31.6190476,18.5606061 31.6190476,12.3737374 31.6190476,0" id="Line-4-Copy" transform="translate(35.047619, 12.689394) scale(-1, 1) translate(-35.047619, -12.689394) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -69,7 +69,7 @@ export default function Page11() {
                     top: "200vh",
                     height: "100vh",
                     width: "100%",
-                    background: "red",
+                    background: "#DDB06C",
                     position: "relative",
                 }}
             ></div>
