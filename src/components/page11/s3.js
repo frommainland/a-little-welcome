@@ -24,27 +24,34 @@ export default function S3() {
 
     // copy from somewhere else
     const [lastYPos, setLastYPos] = React.useState(0);
-    const [shouldShowActions, setShouldShowActions] = React.useState(false);
+
     const [shouldFixed, setShouldFixed] = useState(false)
     const [shouldGoBot, setShouldGoBot] = useState(false)
+    const [shouldGoDeep, setShouldGoDeep] = useState(false)
 
-    React.useEffect(() => {
-        function handleScroll() {
-            const yPos = window.scrollY;
-            const threshold = window.scrollY > size.height * 3;
-            const threshold2 = window.scrollY > size.height * 3.75;
 
-            setShouldFixed(threshold);
-            setShouldGoBot(threshold2);
-            setLastYPos(yPos);
-        }
+    useEffect(() => {
+        scrollY.onChange((v) => {
+            console.log(v);
 
-        window.addEventListener("scroll", handleScroll, false);
+            if (v > size.height * 3) {
+                setShouldFixed(true)
+            } else {
+                setShouldFixed(false)
+            }
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll, false);
-        };
-    }, [lastYPos]);
+            if (v > size.height * 3.85 && v < size.height * 4.5) {
+                setShouldGoBot(true)
+                setShouldGoDeep(false)
+            } else if (v > size.height * 4.5) {
+                setShouldGoBot(false)
+                setShouldGoDeep(true)
+            } else {
+                setShouldGoBot(false)
+                setShouldGoDeep(false)
+            }
+        })
+    }, []);
 
 
     return (
@@ -72,17 +79,27 @@ export default function S3() {
                 }}></motion.div>
 
             {/* 褐色背景 */}
-            <div style={{
-                width: '100vw',
-                height: '100vh',
-                backgroundColor: '#DDB06C'
-            }}></div>
+            <motion.div
+                style={{
+                    width: '100vw',
+                    height: '100vh',
+                    backgroundColor: '#DDB06C'
+                }}
+                animate={{
+                    backgroundColor: shouldGoDeep ? '#B6B2CF' : '#DDB06C'
+                }}>
 
-            <div style={{
-                width: '100vw',
-                height: '100vh',
-                backgroundColor: 'red'
-            }}></div>
+            </motion.div>
+            {/* 紫色背景 */}
+            <motion.div
+                style={{
+                    width: '100vw',
+                    height: '100vh',
+                    backgroundColor: '#DDB06C'
+                }}
+                animate={{
+                    backgroundColor: shouldGoDeep ? '#B6B2CF' : '#DDB06C'
+                }}></motion.div>
 
             {/* 中间长方形*/}
             <motion.div className='tesss'
@@ -96,16 +113,29 @@ export default function S3() {
                     top: "calc((200vh + 65.4vh + (100vh - 65.4vh)/2) * -1)",
                     left: "50%",
                     x: "-50%",
-                    y: shouldFixed ? size.height * 3 : scrollPosition
+                    y: shouldFixed ? size.height * 3 : scrollPosition,
+                    scale: 1
                 }}
-                animate={shouldGoBot ? 'moveToBot' : 'normalScroll'}
+                animate={
+                    shouldGoBot ? 'moveToBot' : shouldGoDeep ? 'moveDeep' : 'normalScroll'
+                }
+                // animate={shouldGoBot ? 'moveToBot' : 'moveDeep'}
                 variants={{
                     moveToBot: {
                         originY: 0,
                         scale: 2.1875,
                         y: size.height * 3.34,
                         transition: {
-                            duration: 1
+                            duration: .4,
+                            ease: smooth
+                        }
+                    },
+                    moveDeep: {
+                        scale: 2.1875,
+                        y: size.height * 3.6,
+                        transition: {
+                            duration: .4,
+                            ease: smooth
                         }
                     },
                     normalScroll: {
@@ -113,19 +143,10 @@ export default function S3() {
                         transition: {
                             duration: 0.4
                         }
-                    }
+                    },
                 }}
             >
-                <motion.div
-                    style={{
-                        width: 200,
-                        height: 200,
-                        backgroundColor: 'red'
-                    }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: shouldShowActions ? 1 : 0 }}
-                    transition={{ opacity: { duration: 0.2 } }}
-                ></motion.div>
+
                 <img src={require(`../../images/page11/cardchip.svg`)} alt="card-chip"
                     style={{
                         position: 'absolute',
