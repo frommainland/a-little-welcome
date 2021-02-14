@@ -8,6 +8,97 @@ import useInView from "react-cool-inview"
 const smooth = [0.4, 0, 0, 1]
 const flow = [0.4, 0, 0.2, 1]
 
+function SmallCap(props) {
+    const [enter, setEnter] = useState(false)
+    const [leave, setLeave] = useState(false)
+
+    const {
+        ref,
+        scrollDirection: { vertical },
+    } = useInView({
+        onEnter: () => {
+            setEnter(true)
+            setLeave(false)
+        },
+        onLeave: () => {
+            setLeave(true)
+            setEnter(false)
+        },
+        rootMargin: "-100px 0px",
+    })
+
+    return (
+        <motion.div
+            ref={ref}
+            animate={leave && vertical === "down" ? "hidden" : "visible"}
+            style={{
+                fontSize: 30,
+                fontWeight: 100,
+                color: "black",
+                letterSpacing: -0.23,
+                textAlign: "center",
+                marginBottom: props.bottom,
+            }}
+            variants={{
+                visible: {
+                    opacity: 1,
+                    y: 0,
+                    scale: 2,
+                    transition: { duration: 1, ease: smooth },
+                },
+                hidden: {
+                    opacity: 1, y: 100, scale: 3,
+                },
+            }}
+        >
+            {`${props.content}`}
+        </motion.div>
+    )
+}
+
+function Title(props) {
+    const [enter, setEnter] = useState(false)
+    const [leave, setLeave] = useState(false)
+
+    const {
+        ref,
+        scrollDirection: { vertical },
+    } = useInView({
+        onEnter: () => {
+            setEnter(true)
+            setLeave(false)
+        },
+        onLeave: () => {
+            setLeave(true)
+            setEnter(false)
+        },
+        rootMargin: "-100px 0px",
+    })
+
+    return (
+        <motion.div
+            ref={ref}
+            animate={leave && vertical === "down" ? "hidden" : "visible"}
+            variants={{
+                visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 1, ease: smooth },
+                },
+                hidden: { opacity: 0, y: 100 },
+            }}
+            style={{
+                fontSize: 60,
+                fontWeight: 400,
+                color: "black",
+                letterSpacing: -0.46,
+                textAlign: "center",
+            }}
+        >
+            {`${props.content}`}
+        </motion.div>
+    )
+}
 
 export default function S3() {
     const scrollPosition = useWindowPosition()
@@ -21,29 +112,23 @@ export default function S3() {
         [0, 40]
     )
 
-
-    // copy from somewhere else
-    const [lastYPos, setLastYPos] = React.useState(0);
-
     const [shouldFixed, setShouldFixed] = useState(false)
     const [shouldGoBot, setShouldGoBot] = useState(false)
     const [shouldGoDeep, setShouldGoDeep] = useState(false)
 
 
     useEffect(() => {
-        scrollY.onChange((v) => {
-            console.log(v);
-
-            if (v > size.height * 3) {
+        const scrollHandle = scrollY.onChange((value) => {
+            if (value > size.height * 3) {
                 setShouldFixed(true)
             } else {
                 setShouldFixed(false)
             }
 
-            if (v > size.height * 3.85 && v < size.height * 4.5) {
+            if (value > size.height * 3.85 && value < size.height * 4.5) {
                 setShouldGoBot(true)
                 setShouldGoDeep(false)
-            } else if (v > size.height * 4.5) {
+            } else if (value > size.height * 4.5) {
                 setShouldGoBot(false)
                 setShouldGoDeep(true)
             } else {
@@ -51,8 +136,10 @@ export default function S3() {
                 setShouldGoDeep(false)
             }
         })
+        return () => {
+            scrollHandle();
+        };
     }, []);
-
 
     return (
         <div className='s3'
@@ -65,8 +152,6 @@ export default function S3() {
                 overflow: "hidden",
             }}
         >
-
-
             {/* 米色背景 */}
             <motion.div
                 style={{
@@ -76,7 +161,9 @@ export default function S3() {
                     borderColor: 'white',
                     borderStyle: 'solid',
                     borderWidth: borderWidth.current
-                }}></motion.div>
+                }}>
+            </motion.div>
+
 
             {/* 褐色背景 */}
             <motion.div
@@ -90,6 +177,7 @@ export default function S3() {
                 }}>
 
             </motion.div>
+
             {/* 紫色背景 */}
             <motion.div
                 style={{
@@ -99,6 +187,17 @@ export default function S3() {
                 }}
                 animate={{
                     backgroundColor: shouldGoDeep ? '#B6B2CF' : '#DDB06C'
+                }}></motion.div>
+
+            {/* 紫色背景 */}
+            <motion.div
+                style={{
+                    width: '100vw',
+                    height: '100vh',
+                    backgroundColor: '#B6B2CF'
+                }}
+                animate={{
+                    backgroundColor: shouldGoDeep ? '#EDDC71' : '#B6B2CF'
                 }}></motion.div>
 
             {/* 中间长方形*/}
@@ -119,7 +218,6 @@ export default function S3() {
                 animate={
                     shouldGoBot ? 'moveToBot' : shouldGoDeep ? 'moveDeep' : 'normalScroll'
                 }
-                // animate={shouldGoBot ? 'moveToBot' : 'moveDeep'}
                 variants={{
                     moveToBot: {
                         originY: 0,
@@ -170,6 +268,20 @@ export default function S3() {
                         top: '5%'
                     }} />
             </motion.div>
+            <motion.div
+                style={{
+                    position:
+                        scrollPosition < size.height * 3 ? "absolute" : "fixed",
+                    top: "50%",
+                    left: "50%",
+                    x: "-50%",
+                    y: "-50%",
+                    width: "80%",
+                }}>
+                <SmallCap content="无论是在街头摆摊的巴西小贩，还是要支付儿女学费的卢旺达渔民。" bottom={24} />
+                <Title content="在所有地方，面向所有人。" />
+            </motion.div>
+
         </div >
     )
 }

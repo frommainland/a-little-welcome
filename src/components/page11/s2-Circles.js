@@ -10,31 +10,29 @@ const smooth = [0.4, 0, 0, 1]
 const flow = [0.4, 0, 0.2, 1]
 const bouncy = [0.86, 0, 0.07, 1]
 let trigger = false
-const lerp = (a, b, n) => (1 - n) * a + n * b
 
 function Trigger() {
-    const { ref, inView } = useInView({ unobserveOnEnter: true })
+    const { ref, inView } = useInView({ unobserveOnEnter: true, })
     if (inView) {
         trigger = true
     }
     return (
         <div
             style={{
-                width: 999,
-                height: 0,
-                backgroundColor: "yellow",
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
+                width: '100vw',
+                height: '100vh',
+                position: 'relative',
+                top: 0
             }}
             ref={ref}
         ></div>
     )
 }
 
+
 function Currency(props) {
     const size = useWindowSize()
+    console.log(trigger);
     return (
         <motion.img
             src={require(`../../images/page11/${props.name}.svg`)}
@@ -105,7 +103,6 @@ export default function BgCircles() {
         <div>
             {/* 背景圆圈触发 */}
             <Trigger />
-            {/* 圆圈组 */}
             <Currency name="dollar" left="10vw" width="9vh" delay={0} />
             <Currency2 name="riyal" left="16vw" width="6vh" delay={3} />
             <Currency name="rmb" left="27vw" width="8vh" delay={8} />
@@ -116,6 +113,8 @@ export default function BgCircles() {
             <Currency name="euro" left="86vw" width="9vh" delay={6} />
             <Currency2 name="pound" left="76vw" width="8vh" />
             <Currency name="rupee" left="80vw" width="8vh" delay={4} />
+            {/* 圆圈组 */}
+
         </div>
     )
 }

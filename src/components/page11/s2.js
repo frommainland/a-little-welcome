@@ -34,6 +34,7 @@ function SmallCap(props) {
             animate={leave && vertical === "down" ? "hidden" : "visible"}
             style={{
                 fontSize: 30,
+                fontWeight: 100,
                 color: "#FFFFFF",
                 letterSpacing: -0.23,
                 textAlign: "center",
@@ -87,6 +88,7 @@ function Title(props) {
             }}
             style={{
                 fontSize: 60,
+                fontWeight: 400,
                 color: "#FFFFFF",
                 letterSpacing: -0.46,
                 textAlign: "center",
@@ -104,11 +106,11 @@ export default function S2() {
 
 
     //圆圈背景触发
-    let trigger = false
-    const { ref, inView } = useInView({ unobserveOnEnter: true })
-    if (inView) {
-        trigger = true
-    }
+    // let trigger = false
+    // const { ref, inView } = useInView({ unobserveOnEnter: true })
+    // if (inView) {
+    //     trigger = true
+    // } 
 
     return (
         <div className='s2'
