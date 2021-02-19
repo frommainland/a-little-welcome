@@ -12,27 +12,30 @@ const bouncy = [0.86, 0, 0.07, 1]
 let trigger = false
 
 function Trigger() {
-    const { ref, inView } = useInView({ unobserveOnEnter: true, })
+    const { ref, inView } = useInView({
+        unobserveOnEnter: true,
+        // threshold: 0.25,
+    })
     if (inView) {
         trigger = true
     }
     return (
         <div
+            className="trigger"
             style={{
-                width: '100vw',
-                height: '100vh',
-                position: 'relative',
-                top: 0
+                width: "100vw",
+                height: "0.01vh",
+                position: "relative",
+                top: 0,
             }}
             ref={ref}
         ></div>
     )
 }
 
-
 function Currency(props) {
     const size = useWindowSize()
-    console.log(trigger);
+    // console.log(trigger)
     return (
         <motion.img
             src={require(`../../images/page11/${props.name}.svg`)}
@@ -113,8 +116,6 @@ export default function BgCircles() {
             <Currency name="euro" left="86vw" width="9vh" delay={6} />
             <Currency2 name="pound" left="76vw" width="8vh" />
             <Currency name="rupee" left="80vw" width="8vh" delay={4} />
-            {/* 圆圈组 */}
-
         </div>
     )
 }

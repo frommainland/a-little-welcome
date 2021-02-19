@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="90px" height="90px" viewBox="0 0 90 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>cl</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy-17" transform="translate(-404.000000, -130.000000)" fill-rule="nonzero">
+            <g id="cl" transform="translate(404.000000, 130.000000)">
+                <circle id="Oval" fill="#EEEEEE" cx="45" cy="45" r="45"></circle>
+                <path d="M90,45 C90,69.8528137 69.8528137,90 45,90 C20.1471863,90 0,69.8528137 0,45 C0,20.1445313 45,45 45,45 L90,45 Z" id="Path" fill="#D80027"></path>
+                <path d="M0,45 C0,20.1471863 20.1471863,0 45,0 L45,45 L0,45 Z" id="Path" fill="#0052B4"></path>
+                <polygon id="Path" fill="#EEEEEE" points="26.7890625 15.6445312 29.7070312 24.609375 39.1289062 24.609375 31.5 30.1640625 34.4179688 39.1289063 26.7890625 33.5917969 19.1601562 39.1289063 22.078125 30.1640625 14.4492188 24.609375 23.8710938 24.609375"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
