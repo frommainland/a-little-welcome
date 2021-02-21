@@ -182,6 +182,12 @@ export default function S3() {
     //     }
     // }, [])
 
+    // s3文案opacity
+    const s3TextOpacity = useTransform(
+        scrollY,
+        [0, size.height * 3, size.height * 3.2],
+        [1, 1, 0]
+    )
     return (
         <div
             className="s3"
@@ -261,6 +267,7 @@ export default function S3() {
                     x: "-50%",
                     y: shouldFixed ? size.height * 3 : scrollPosition,
                     scale: 1,
+                    pointerEvents: "none",
                 }}
                 animate={
                     shouldGoBot
@@ -336,6 +343,8 @@ export default function S3() {
                     x: "-50%",
                     y: "-50%",
                     width: "80%",
+                    pointerEvents: "none",
+                    opacity: s3TextOpacity,
                 }}
             >
                 <SmallCap

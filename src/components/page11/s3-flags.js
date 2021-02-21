@@ -23,9 +23,10 @@ function Trigger() {
     }
     return (
         <div
+            className="flag-trigger"
             style={{
                 width: 999,
-                height: 5,
+                height: 0,
                 backgroundColor: "yellow",
                 position: "absolute",
                 top: "50%",
@@ -63,29 +64,36 @@ function Flag(props) {
                 width: "6.25vw",
                 height: "6.25vw",
                 position: "absolute",
-                x: `${startX}vw`,
-                y: `${startY}vh`,
-                scale: 1,
-                opacity: 1,
+                left: `${startX}vw`,
+                top: `${startY}vh`,
+                border: "4px solid white",
+                borderRadius: "4vw",
+                boxShadow: "6px 6px 8px -6px rgb(0 0 0 / 15%)",
+            }}
+            animate={props.animations}
+            transition={{
+                duration: 0.1,
+                ease: smooth,
             }}
             key={props.i}
-            // animate={trigger ? "move" : "test"}
+            whileHover={{
+                scale: 1.2,
+                transition: {
+                    duration: 0.3,
+                    ease: smooth,
+                },
+            }}
+            // animate={trigger ? "show" : "hide"}
             // variants={{
-            //     move: {
-            //         x: convertEndX,
-            //         y: convertEndY,
-            //         opacity: 1,
+            //     show: {
             //         scale: 1,
             //         transition: {
             //             duration: 1,
             //             ease: flow,
             //         },
             //     },
-            //     test: {
-            //         x: convertStartX,
-            //         y: convertStartY,
+            //     hide: {
             //         scale: 0,
-            //         opacity: 0,
             //     },
             // }}
         />
@@ -140,6 +148,11 @@ export default function Flags() {
         550,
     ]
 
+    // 一次性创建12个useAnimation
+    const animations = Array.from({ length: flagNum }, useAnimation)
+
+    const parallaxScope = []
+
     for (let index = 0; index < flagNum; index++) {
         flags.push(
             <Flag
@@ -147,36 +160,43 @@ export default function Flags() {
                 y={randonStartYs[index]}
                 i={index}
                 img={img[index]}
+                animations={animations[index]}
             />
         )
+        parallaxScope.push(index < 4 ? 10 : 3 < index && index < 8 ? 15 : 35)
     }
 
-    // const x = useMotionValue(0)
-    // const y = useMotionValue(0)
-
-    // const moveY = useTransform(y, [0, size.height], [0, 10])
-    // const moveX = useTransform(x, [0, size.width], [0, 10])
-
+    let offsetX = 0
+    let offsetY = 0
     const areaRef = useRef()
 
-    // function handleMouse(event) {
-    //     let rect = areaRef.current.getBoundingClientRect()
-    //     x.set(event.clientX - rect.left)
-    //     y.set(event.clientY - rect.top)
-    //     console.log(event.pageX)
-    // }
-    function handleMouse(e) {
+    function handleMouse(event) {
         let rect = areaRef.current.getBoundingClientRect()
-        let x = e.clientX - rect.x
-        let y = e.clientX - rect.y
-        console.log(x, y)
+        offsetX = event.clientX - size.width / 2
+        offsetY = event.clientY - size.height / 2
+        for (let index = 0; index < flagNum; index++) {
+            animations[index].start({
+                x: offsetX / parallaxScope[index],
+                y: offsetY / parallaxScope[index],
+            })
+        }
     }
-    // ref={areaRef}
+
     return (
-        <motion.div>
-            {/* 背景圆圈触发 */}
+        <motion.div
+            className="flags"
+            style={{
+                position: "absolute",
+                top: 0,
+                width: "100vw",
+                height: "100vh",
+            }}
+            ref={areaRef}
+            onMouseMove={handleMouse}
+        >
+            {/* 背景国旗触发 */}
             <Trigger />
-            {/* 圆圈组 */}
+            {/* 国旗组 */}
             {flags}
         </motion.div>
     )
