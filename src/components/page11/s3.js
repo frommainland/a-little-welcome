@@ -12,6 +12,9 @@ import useWindowSize from "../useWindowSize"
 import useWindowPosition from "../useWindowPos"
 import useInView from "react-cool-inview"
 import Flags from "./s3-flags"
+
+import S4Title from "./s4-title"
+
 const smooth = [0.4, 0, 0, 1]
 const flow = [0.4, 0, 0.2, 1]
 
@@ -200,13 +203,13 @@ export default function S3() {
                 overflow: "hidden",
             }}
         >
-            {/* 米色背景 */}
+            {/* 绿色背景 */}
             <motion.div
                 className="beigeBg"
                 style={{
                     width: "100vw",
                     height: "100vh",
-                    backgroundColor: "#F5F1EA",
+                    backgroundColor: "#84B34F",
                     borderColor: "white",
                     borderStyle: "solid",
                     borderWidth: borderWidth.current,
@@ -221,6 +224,8 @@ export default function S3() {
                     width: "100vw",
                     height: "100vh",
                     backgroundColor: "#DDB06C",
+                    display: "inline-flex",
+                    justifyContent: "center",
                 }}
                 animate={{
                     backgroundColor: shouldGoDeep ? "#B6B2CF" : "#DDB06C",
@@ -240,7 +245,7 @@ export default function S3() {
                 }}
             ></motion.div>
 
-            {/* 紫色背景 */}
+            {/* 黄色背景 */}
             <motion.div
                 style={{
                     width: "100vw",
@@ -353,6 +358,20 @@ export default function S3() {
                 />
                 <Title content="在所有地方，面向所有人。" />
             </motion.div>
+
+            <div
+                style={{
+                    position: "absolute",
+                    top: size.height,
+                    left: "50%",
+                    x: "-50%",
+                    y: "-50%",
+                    width: "80%",
+                    pointerEvents: "none",
+                }}
+            >
+                <S4Title />
+            </div>
         </div>
     )
 }

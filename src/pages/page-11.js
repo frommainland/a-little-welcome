@@ -7,8 +7,6 @@ import useWindowSize from "../components/useWindowSize"
 import S1 from "../components/page11/s1"
 import S2 from "../components/page11/s2"
 import S3 from "../components/page11/s3"
-import S3MidCard from "../components/page11/s3MidCard"
-//images links
 
 export default function Page11() {
     const size = useWindowSize()
