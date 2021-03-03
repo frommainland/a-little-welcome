@@ -17,6 +17,7 @@ const IndexPage = () => (
                 <Link to="/page-11">
                     <li>
                         <sup>11.</sup>心驰所向
+                        <span>加工中</span>
                     </li>
                 </Link>
                 <Link to="/page-10">
@@ -37,7 +38,7 @@ const IndexPage = () => (
                 <Link to="/page-7">
                     <li>
                         <sup>7.</sup>生物识别
-                        </li>
+                    </li>
                 </Link>
                 <Link to="/page-6">
                     <li>
@@ -71,18 +72,19 @@ const IndexPage = () => (
                 </Link>
             </ul>
         </div>
-        <div style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            height: '100vh',
-            width: '100vw',
-            overflow: 'hidden',
-            zIndex: -1,
-        }}>
+        <div
+            style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                height: "100vh",
+                width: "100vw",
+                overflow: "hidden",
+                zIndex: -1,
+            }}
+        >
             <P5 />
         </div>
-
     </Layout>
 )
 

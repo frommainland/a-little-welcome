@@ -1,52 +1,76 @@
 @font-face {
-  font-family: "qihei";
-  src: url("../font/mfqihei_simple.ttf") format("truetype");
+    font-family: "qihei";
+    src: url("../font/mfqihei_simple.ttf") format("truetype");
 }
 
 .wrap {
-  margin: 60px;
-  padding: 40px 70px;
-  border: 3px solid black;
-  box-shadow: 0 0 0 9px white, 0 0 0 19px black;
-  cursor: crosshair;
+    margin: 60px;
+    padding: 40px 70px;
+    border: 3px solid black;
+    box-shadow: 0 0 0 9px white, 0 0 0 19px black;
+    cursor: crosshair;
 }
 
 .list li {
-  color: black;
-  list-style-type: none;
-  font-family: "qihei";
-  font-size: 130px;
-  display: inline-block;
-  margin-left: 40px;
+    color: black;
+    list-style-type: none;
+    font-family: "qihei";
+    font-size: 130px;
+    display: inline-block;
+    margin-left: 40px;
 }
 
 .list li:after {
-  content: "";
-  display: block;
-  width: calc(100% - 50px);
-  height: 5px;
-  background-color: #fe3b12;
-  position: relative;
-  left: 50px;
-  bottom: 10px; /* this is to match where the border is */
-  transform-origin: left;
-  transform: scale(0);
-  transition: 0.25s linear;
+    content: "";
+    display: block;
+    width: calc(100% - 50px);
+    height: 5px;
+    background-color: #fe3b12;
+    position: relative;
+    left: 50px;
+    bottom: 10px; /* this is to match where the border is */
+    transform-origin: left;
+    transform: scale(0);
+    transition: 0.25s linear;
 }
 
 .list li:hover:after {
-  transform: scale(1);
+    transform: scale(1);
 }
 
 .list sup {
-  font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC",
-    "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun,
-    SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN",
-    "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU,
-    serif;
-  font-size: 36px;
-  font-weight: 900;
-  position: relative;
-  top: -70px;
-  margin-right: 16px;
+    font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC",
+        "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB",
+        NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN",
+        "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU,
+        MingLiU, serif;
+    font-size: 36px;
+    font-weight: 900;
+    position: relative;
+    top: -70px;
+    margin-right: 16px;
+}
+
+span {
+    color: white;
+    width: 90px;
+    height: 50px;
+    transform: rotate(20deg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -50px;
+    margin-left: -50px;
+    border-radius: 50%;
+    font-size: 15px;
+    font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC",
+        "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB",
+        NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN",
+        "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU,
+        MingLiU, serif;
+    font-weight: 900;
+    background: #afafaf;
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.1);
 }
