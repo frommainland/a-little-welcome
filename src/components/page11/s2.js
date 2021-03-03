@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react"
-import { motion, useTransform, useAnimation, useViewportScroll } from "framer-motion"
+import {
+    motion,
+    useTransform,
+    useAnimation,
+    useViewportScroll,
+} from "framer-motion"
 import "../../components/myfont.css"
 import useWindowSize from "../useWindowSize"
 import useWindowPosition from "../useWindowPos"
@@ -102,18 +107,9 @@ function Title(props) {
 export default function S2() {
     const scrollPosition = useWindowPosition()
     const size = useWindowSize()
-    const { scrollY } = useViewportScroll()
-
-
-    //圆圈背景触发
-    // let trigger = false
-    // const { ref, inView } = useInView({ unobserveOnEnter: true })
-    // if (inView) {
-    //     trigger = true
-    // } 
-
     return (
-        <div className='s2'
+        <div
+            className="s2"
             style={{
                 position: "relative",
                 top: "200vh",

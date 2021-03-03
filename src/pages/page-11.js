@@ -13,7 +13,6 @@ export default function Page11() {
 
     const { scrollYProgress, scrollY } = useViewportScroll()
     const [currentY, setCurrentY] = React.useState(0)
-
     React.useEffect(() => {
         const unsubscribeY = scrollY.onChange(value =>
             setCurrentY(Math.round(value))
