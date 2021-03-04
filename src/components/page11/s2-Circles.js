@@ -95,6 +95,13 @@ export default function BgCircles() {
             <Currency name="euro" left="86vw" width="9vh" delay={6} />
             <Currency2 name="pound" left="76vw" width="8vh" />
             <Currency name="rupee" left="80vw" width="8vh" delay={4} />
+            <motion.div
+                animate={{
+                    y: [0, 200],
+                }}
+            >
+                dsadsa
+            </motion.div>
         </div>
     )
 }

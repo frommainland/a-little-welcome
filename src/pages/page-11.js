@@ -11,7 +11,7 @@ import S3 from "../components/page11/s3"
 export default function Page11() {
     const size = useWindowSize()
 
-    const { scrollYProgress, scrollY } = useViewportScroll()
+    const { scrollY } = useViewportScroll()
     const [currentY, setCurrentY] = React.useState(0)
     React.useEffect(() => {
         const unsubscribeY = scrollY.onChange(value =>
@@ -57,9 +57,9 @@ export default function Page11() {
                 </div>
             </div>
 
-            <S1 />
+            {/* <S1 />
             <S2 />
-            <S3 />
+            <S3 /> */}
 
             <div
                 style={{
@@ -69,7 +69,15 @@ export default function Page11() {
                     background: "red",
                     position: "relative",
                 }}
-            ></div>
+            >
+                <motion.div
+                    animate={{
+                        y: [0, 200],
+                    }}
+                >
+                    dsadsa
+                </motion.div>
+            </div>
         </Layout>
     )
 }

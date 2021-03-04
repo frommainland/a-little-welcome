@@ -153,7 +153,6 @@ export default function S1() {
                     }}
                 ></motion.div>
             </motion.div>
-
             {/* mask左边方块 */}
             <motion.div
                 style={{
