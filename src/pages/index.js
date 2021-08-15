@@ -5,15 +5,15 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import Timer from "../components/timer"
-import style from "../components/index.module.css"
+import * as styles from "../components/index.module.css"
 
 import loadable from "@loadable/component"
 const P5 = loadable(() => import("../components/p5"))
 
 const IndexPage = () => (
     <Layout>
-        <div className={style.wrap}>
-            <ul className={style.list}>
+        <div className={styles.wrap}>
+            <ul className={styles.list}>
                 <Link to="/page-11">
                     <li>
                         <sup>11.</sup>心驰所向
